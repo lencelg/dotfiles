@@ -1,0 +1,21 @@
+-- Neovim 基础设置
+local opt = vim.opt
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+opt.expandtab = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.wrap = true
+opt.scrolloff = 5
+opt.signcolumn = 'yes'
+opt.winborder = 'rounded'
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = true
+opt.incsearch = true
+opt.inccommand = 'split'
+opt.clipboard = 'unnamedplus'
+vim.g.mapleader = ' '
+opt.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
+vim.env.LANG = 'en_US.UTF-8'

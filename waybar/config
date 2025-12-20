@@ -1,0 +1,37 @@
+{
+    "layer": "top",
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 7,
+    "padding": 0,
+    "height" : 40,
+
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
+
+    "modules-center": [
+        "custom/mpris"
+    ],
+
+    "modules-right": [
+        "custom/network_speed",
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "clock",
+        "custom/weather",
+        "battery",
+        "bluetooth",
+        "tray",
+        "pulseaudio"
+    ]
+}

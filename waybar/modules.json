@@ -1,0 +1,131 @@
+{
+  // Workspaces
+  "niri/workspaces": {
+    "on-click": "activate",
+  },
+
+  // Taskbar, no longer needed
+  "wlr/taskbar": {
+    //"format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+  },
+
+  // niri Window
+  "niri/window": {
+    "format": "{}",
+    "max-length": 50,
+    "rewrite": {
+      "(.*) - Brave": "$1",
+      "(.*) - Brave Search": "$1",
+    },
+    "separate-outputs": true,
+  },
+
+  // Empty
+  "custom/empty": {
+    "format": ""
+  },
+
+  // System tray
+  "tray": {
+    "icon-size": 21,
+    "spacing": 13
+  },
+
+  //disk
+  "disk":{
+	"format": "󰉉  {percentage_free}%",
+	},
+
+  // date/clock
+  "clock": {
+    "timezone": "Etc",
+    "format": " {:%Y-%m-%d    󰅐  %H:%M}",
+	},
+
+  // cpu
+  "cpu": {
+	"format": "󰻠  {usage}%"
+	},
+
+  // memory
+	"memory": {
+	"format": "  {}%"
+	},
+
+  // Battery
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+    },
+    "on-click": "pavucontrol"
+  },
+
+  // Bluetooth
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    "on-click": "blueman-manager",
+    "format-no-controller": ""
+  },
+
+  // network_speed
+  "custom/network_speed": {
+        "format": "{}",
+        "interval": 2,          
+        "exec": "~/.config/waybar/scripts/network_speed.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+  // Audio playing info.
+  // Uses a playerctl-backed custom module instead of the native "mpris"
+  // module: the native one segfaults in waybar 0.15.0 when a browser
+  // starts a video (upstream libplayerctl/GLib signal teardown bug).
+  "custom/mpris": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/media.sh",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": true,
+        "on-click": "playerctl play-pause",
+        "on-click-middle": "playerctl previous",
+        "on-click-right": "playerctl next"
+    },
+
+    //weather to get zhuhai weather
+    "custom/weather": {
+        "exec": "curl 'https://wttr.in/zhuhai?format=1'",
+        "interval": 120,
+        "format": "{}",
+        "tooltip": true
+    },
+
+}

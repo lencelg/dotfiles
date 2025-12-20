@@ -1,0 +1,141 @@
+* {
+    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+}
+
+window#waybar {
+    font-size: 15px;
+    border-radius: 0px;
+    margin: 4px;
+    padding: 0;
+    background-color: #321414;
+    /* Default text colour, set here (not on *) so it is only inherited and
+       per-module colours still win. Also stops waybar inheriting the GTK
+       theme foreground (COSMIC theme changes used to make it grey). */
+    color: #e0e0e0;
+}
+
+
+/* Right-most: Clock */
+#clock {
+    font-size: 15px;
+    border-radius: 0px;
+    padding: 0px 8px;
+}
+
+/* Active window title */
+#window {
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 0px;
+    padding: 4px 12px;
+}
+
+#window.empty {
+}
+
+/* Workspace container */
+#niri-workspaces {
+    background: #1e222a;
+    border-radius: 10px;
+    color: #e0e0e0;
+}
+
+/* Individual workspace buttons */
+#workspaces button {
+    min-width: 2px;
+}
+
+#workspaces button.active {
+    border-radius: 0px;
+    color: #0f1117;
+    background: #00ac89;
+}
+
+#workspaces button:hover {
+    border-radius: 0px;
+    background: #0d3531;
+    border-width: 0px;
+}
+
+
+/* Tooltips */
+tooltip {
+    border-radius: 12px;
+    background-color: #0f1117;
+    color: #c0c0c0;
+    padding: 4px 8px;
+}
+
+/* Taskbar */
+#taskbar {
+    margin: 0px;
+    border-radius: 0px;
+    font-weight: normal;
+}
+
+/* All system info modules */
+#pulseaudio{
+    font-size: 16px;
+}
+#network{
+    font-size: 16px;
+}
+#bluetooth{
+    font-size: 16px;
+}
+#battery {
+    font-size: 16px;
+}
+#cpu{
+    font-size: 16px;
+}
+#memory{
+    font-size: 16px;
+}
+#disk{
+    font-size: 16px;
+}
+#temperature{
+    font-size: 16px;
+}
+#tray{
+}
+#backlight,
+#custom-updates,
+#custom-notification {
+    background-color: #1e222a;
+    font-size: 14px;
+    font-weight: 800;
+    color: #c0c0c0;
+    border-radius: 0px;
+    padding: 4px 10px;
+}
+
+/* Battery critical warning */
+#battery.critical:not(.charging) {
+    background-color: #e65100;
+    color: #ffffff;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #0f1117;
+        color: #ffffff;
+    }
+}
+#custom-mpris {
+    padding: 0 10px;          
+}
+
+#custom-mpris.playing {
+    color: #a3be8c; 
+}
+
+#custom-mpris.paused {
+    color: #b48ead; 
+}
+
+#custom-mpris.stopped {
+    color: #d8dee9; 
+}

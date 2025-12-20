@@ -1,1 +1,51 @@
-# dotfiles
+personal dotfiles(used for two monitors)<br>
+
+other part must be read when setting environment in a new system
+* niri
+> * polkit-kde-authentication-agent
+## browser
+* qutebrowser
+* brave-browser
+## terminal-emulator
+* foot
+* kitty
+## launcher
+* rofi
+## file manager
+* yazi
+* nemo
+## editor
+* nvim
+* vim
+* code
+* zed
+## shell
+* zsh
+* bash(with bash-it)
+## notification
+* mako
+## resource-manager
+* btop
+## bar
+* waybar
+## locker
+* swaylock-effects
+## player
+* mpv-modernz-git
+## other
+* lsd: replacment of ls
+* kwalletrc: used for kde wallet password, store at ~/.config
+* fonts.conf: used for chinese font setup in archlinux, stored at ~/.config/fontconfig/
+* bash-it
+* gh
+* blueman
+* bc: for network_speed.sh in waybar
+* rog-control-center , asusctl
+* weathr: for weather infomation
+* "keyboard.dispatch": "keyCode" used in vscode for keybing change(caps: swapspace in niri)
+* use relative number in vscode
+* lswt for showing app-id in wayland
+* editor /etc/vconsole.conf to use us keymap
+* wshowkeys-mao-git: used in niri to show keys pressed(not used often)
+* refindTTT is a refind theme, but refind is not longer used in current config
+* keyd: use to swap keys in system level, *useful*, niri origin ones is diabled

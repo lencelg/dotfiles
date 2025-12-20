@@ -1,0 +1,255 @@
+#!/bin/bash
+
+# ================= 配置 =================
+GM_DIR="$HOME/.config/qutebrowser/greasemonkey/plugins"
+DISABLED_DIR="$GM_DIR/disabled"
+MAP_FILE="$GM_DIR/.url_map"
+
+mkdir -p "$GM_DIR"
+mkdir -p "$DISABLED_DIR"
+touch "$MAP_FILE"
+
+# 启用列表 & 禁用列表
+LIST_ENABLED="$QB_GM_LIST"
+LIST_DISABLED="$QB_GM_DISABLED_LIST"
+
+# 获取代理
+PROXY_CMD=""
+if [ -n "$QB_PROXY" ]; then
+    PROXY_CMD="-x $QB_PROXY"
+fi
+
+# ================= 工具函数 =================
+
+msg() {
+    local text="$1"
+    if [ -n "$QUTE_FIFO" ]; then
+        echo "message-info \"$text\"" > "$QUTE_FIFO"
+    else
+        echo ">> $text"
+    fi
+}
+
+# 获取真实的下载链接
+get_dl_url_and_id() {
+    local url="$1"
+    local dl_url="$url"
+    local id=""
+
+    # 逻辑：如果是 GreasyFork，提取 ID 并构造下载链
+    if [[ "$url" == *"greasyfork.org"* ]] && [[ "$url" != *".js" ]]; then
+        id=$(echo "$url" | grep -oE "/scripts/[0-9]+" | cut -d/ -f3)
+        if [ -n "$id" ]; then
+            dl_url="https://update.greasyfork.org/scripts/${id}/code.user.js"
+        fi
+    fi
+
+    # 如果没有提取到 ID (直链情况)，计算 URL 的 md5 作为 ID，防止同名冲突
+    if [ -z "$id" ]; then
+        id=$(echo "$url" | md5sum | cut -c1-8)
+    fi
+
+    # 输出以管道符分隔: URL|ID
+    echo "$dl_url|$id"
+}
+
+# 从文件内容提取 @name
+extract_name() {
+    local file="$1"
+    local name=""
+    # 优先中文名 > 英文名
+    name=$(grep -m1 "^// @name:zh-CN" "$file" | sed 's|^// @name:zh-CN[[:space:]]*||')
+    [ -z "$name" ] && name=$(grep -m1 "^// @name:zh" "$file" | sed 's|^// @name:zh[[:space:]]*||')
+    [ -z "$name" ] && name=$(grep -m1 "^// @name" "$file" | sed 's|^// @name[[:space:]]*||')
+    
+    # 净化文件名 (空格转下划线，去斜杠)
+    echo "$name" | tr -d '\r' | tr '/' '_' | xargs | tr ' ' '_'
+}
+
+# 查缓存：根据 URL 获取本地文件名
+get_filename_from_map() {
+    # 精确匹配，防止子串误判
+    grep -F "$1 " "$MAP_FILE" | head -n 1 | awk '{print $2}'
+}
+
+# 更新缓存
+update_map() {
+    local url="$1"
+    local filename="$2"
+    # 使用临时文件原子更新
+    grep -vF "$url " "$MAP_FILE" > "${MAP_FILE}.tmp"
+    echo "$url $filename" >> "${MAP_FILE}.tmp"
+    mv "${MAP_FILE}.tmp" "$MAP_FILE"
+}
+
+# ================= 核心处理逻辑 =================
+
+process_script() {
+    local raw_url="$1"
+    local is_disabled="$2" # "true" or "false"
+
+    # 1. 获取下载链接和ID
+    local info=$(get_dl_url_and_id "$raw_url")
+    local dl_url="${info%|*}"
+    local id="${info#*|}"
+
+    # 2. 查缓存文件名
+    local filename=$(get_filename_from_map "$raw_url")
+    
+    # 路径定义
+    local file_path=""
+    local disabled_path=""
+    
+    # 3. 初始化分支：缓存无记录 或 文件实体丢失 -> 必须重新下载
+    if [ -z "$filename" ] || ([ ! -f "$GM_DIR/$filename" ] && [ ! -f "$DISABLED_DIR/$filename" ]); then
+        if [ -z "$QUTE_FIFO" ]; then echo "🔍 Init: $raw_url"; fi
+        
+        local temp_dl=$(mktemp)
+        # 第一次下载不使用 -z，必须全量
+        curl $PROXY_CMD -sL "$dl_url" -o "$temp_dl"
+        
+        # 校验文件有效性
+        if [ $? -ne 0 ] || ! grep -q "==UserScript==" "$temp_dl"; then
+            msg "❌ 下载无效: $raw_url"
+            rm "$temp_dl"
+            return
+        fi
+        
+        # 提取名称并组合 ID
+        local script_name=$(extract_name "$temp_dl")
+        [ -z "$script_name" ] && script_name="script"
+        
+        # 格式: ID_脚本名.user.js (解决同名冲突)
+        filename="${id}_${script_name}.user.js"
+        
+        # 存入缓存
+        update_map "$raw_url" "$filename"
+        
+        # 放入启用目录
+        mv "$temp_dl" "$GM_DIR/$filename"
+        msg "🆕 新增: $script_name"
+    fi
+
+    # 此时 filename 必然存在且正确
+    file_path="$GM_DIR/$filename"
+    disabled_path="$DISABLED_DIR/$filename"
+
+    # --- 逻辑分支 A: 禁用 ---
+    if [ "$is_disabled" = "true" ]; then
+        # 如果在启用目录，移走
+        if [ -f "$file_path" ]; then
+            mv "$file_path" "$disabled_path"
+            msg "💤 禁用: $filename"
+        fi
+        return
+    fi
+
+    # --- 逻辑分支 B: 启用/更新 ---
+    
+    # 1. 复活检测
+    if [ -f "$disabled_path" ]; then
+        mv "$disabled_path" "$file_path"
+        msg "♻️ 启用: $filename"
+    fi
+    
+    # 2. 增量更新 (Time Conditional)
+    # 只有当 file_path 存在时，-z 才有意义
+    local http_code
+    if [ -f "$file_path" ]; then
+        # -z: 只有比本地文件新才下载
+        http_code=$(curl $PROXY_CMD -L -R -z "$file_path" -o "$file_path" -w "%{http_code}" -s "$dl_url")
+    else
+        # 文件异常丢失，全量下载
+        http_code=$(curl $PROXY_CMD -L -o "$file_path" -w "%{http_code}" -s "$dl_url")
+    fi
+
+    if [ "$http_code" == "200" ]; then
+        msg "✅ 更新: $filename"
+    elif [ "$http_code" == "404" ]; then
+        msg "❌ 远程404: $filename"
+    elif [ "$http_code" != "304" ] && [ "$http_code" != "000" ]; then
+        msg "❌ 错误($http_code): $filename"
+    fi
+}
+
+# ================= 执行入口 =================
+
+if [ -z "$LIST_ENABLED" ] && [ -z "$LIST_DISABLED" ]; then
+    msg "⚠️ 列表为空"
+    exit 0
+fi
+
+msg "🚀 脚本同步中... (Proxy: ${QB_PROXY:-OFF})"
+
+# 1. 冲突检测
+# --------------------
+# 找出同时存在于两个列表的 URL
+CONFLICTS=$(comm -12 <(echo "$LIST_ENABLED" | tr ' ' '\n' | sort) <(echo "$LIST_DISABLED" | tr ' ' '\n' | sort))
+for url in $CONFLICTS; do
+    if [ -n "$url" ]; then
+        msg "🛑 跳过 $url "
+    fi
+msg "以上 url 禁用列表和启用列表都存在"
+done
+
+# 2. 处理列表
+# --------------------
+# 仅处理非冲突项
+for url in $LIST_ENABLED; do
+    # 如果 url 在冲突列表中，跳过
+    if echo "$CONFLICTS" | grep -qF "$url"; then continue; fi
+    process_script "$url" "false"
+done
+
+for url in $LIST_DISABLED; do
+    if echo "$CONFLICTS" | grep -qF "$url"; then continue; fi
+    process_script "$url" "true"
+done
+
+# 3. 清理废弃脚本
+# --------------------
+# 遍历 .url_map 里的每一行。
+# 如果该行的 URL 不在 LIST_ENABLED 也不在 LIST_DISABLED 中，则视为废弃。
+# --------------------
+
+# 创建临时映射文件用于更新
+NEW_MAP=$(mktemp)
+
+while read -r line; do
+    [ -z "$line" ] && continue
+    url=$(echo "$line" | awk '{print $1}')
+    file=$(echo "$line" | awk '{print $2}')
+    
+    # 检查 URL 是否存在于当前的配置列表中
+    # 注意：这里需要精确匹配
+    is_active=0
+    # 检查启用列表
+    if echo " $LIST_ENABLED " | grep -q " $url "; then is_active=1; fi
+    # 检查禁用列表
+    if echo " $LIST_DISABLED " | grep -q " $url "; then is_active=1; fi
+
+    if [ $is_active -eq 1 ]; then
+        # 有效，保留在 map 中
+        echo "$line" >> "$NEW_MAP"
+    else
+        # 无效，执行删除
+        if [ -f "$GM_DIR/$file" ]; then
+            rm "$GM_DIR/$file"
+            msg "🗑️ 删除: $file"
+        fi
+        if [ -f "$DISABLED_DIR/$file" ]; then
+            rm "$DISABLED_DIR/$file"
+            msg "🗑️ 删除: $file"
+        fi
+    fi
+done < "$MAP_FILE"
+
+mv "$NEW_MAP" "$MAP_FILE"
+
+# ================= 收尾 =================
+if [ -n "$QUTE_FIFO" ]; then
+    echo "greasemonkey-reload" > "$QUTE_FIFO"
+    msg "✅ 完成 (已重载)"
+else
+    echo "✅ 完成"
+fi
