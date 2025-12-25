@@ -35,10 +35,14 @@ output "AU Optronics B156HAN15.H  Unknown" {
     mode "1920x1080@144.036" // Set resolution and refresh rate
     scale 1 // No scaling 
 }
-//workspacce
+//
+workspace "work" {
+    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
+}
 workspace "chat" {
     open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
+
 // ────────────── Keybindings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
 
@@ -123,21 +127,11 @@ binds {
     MOD+2                               { focus-workspace 2; }
     MOD+3                               { focus-workspace 3; }
     MOD+4                               { focus-workspace 4; }
-    MOD+5                               { focus-workspace 5; }
-    MOD+6                               { focus-workspace 6; }
-    MOD+7                               { focus-workspace 7; }
-    MOD+8                               { focus-workspace 8; }
-    MOD+9                               { focus-workspace 9; }
 
     MOD+CTRL+1                          { move-column-to-workspace 1; }
     MOD+CTRL+2                          { move-column-to-workspace 2; }
     MOD+CTRL+3                          { move-column-to-workspace 3; }
     MOD+CTRL+4                          { move-column-to-workspace 4; }
-    MOD+CTRL+5                          { move-column-to-workspace 5; }
-    MOD+CTRL+6                          { move-column-to-workspace 6; }
-    MOD+CTRL+7                          { move-column-to-workspace 7; }
-    MOD+CTRL+8                          { move-column-to-workspace 8; }
-    MOD+CTRL+9                          { move-column-to-workspace 9; }
 
     MOD+TAB                             { focus-workspace-previous; }
 
@@ -152,7 +146,7 @@ binds {
 
     // ─── Modes ───
     MOD+T                               { toggle-window-floating; }
-    MOD+SHIFT+F                               { fullscreen-window; }
+    MOD+SHIFT+F                         { fullscreen-window; }
     MOD+F                               {maximize-window-to-edges; }
     MOD+W                               { toggle-column-tabbed-display; }
 
@@ -272,13 +266,8 @@ binds {
     }
 
     window-rule {
-        match app-id="brave"
-        open-maximized true
-    }
-    window-rule {
         match app-id="wechat"
         match app-id="qq"
-        match app-id="Qt Creator"
         open-on-workspace "chat"
     }
     window-rule {

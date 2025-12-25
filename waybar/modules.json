@@ -11,7 +11,7 @@
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "ignore-list": ["Alacritty", "kitty", "ghostty"],
+    "ignore-list": ["Alacritty","ghostty"],
     "app_ids-mapping": {
       "firefoxdeveloperedition": "firefox-developer-edition"
     },
@@ -95,12 +95,30 @@
     "spacing": 10
   },
 
+  //CPU, disk ,memory
+  "disk":{
+	"format": "󰉉  {percentage_free}%",
+	},
+   "sway/mode": {
+	"format": "<span style=\"italic\">{}</span>"
+	},
+    "clock": {
+	"format": "  {:%Y-%m-%d    󰅐  %H:%M}",
+	},
+	"cpu": {
+	"format": "󰻠  {usage}%"
+	},
+	// 
+	"memory": {
+	"format": "  {}%"
+	},
+
   // Clock
-  "clock": {
-    "format": "{:%H:%M %a}",
-    "on-click": "ags -t calendar",
-    "tooltip": false
-  },
+  //"clock": {
+   // "format": "{:%H:%M %a}",
+    //"on-click": "ags -t calendar",
+   // "tooltip": false
+ // },
 
   "niri/language": {
     "format": "/ K {short}"
