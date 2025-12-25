@@ -21,6 +21,14 @@
       "rev": "3c51fa4104b97ddaccb66a6b34552e3eafd5b645",
       "src": "https://github.com/mluders/comfy-line-numbers.nvim"
     },
+    "github-nvim-theme": {
+      "rev": "c106c9472154d6b2c74b74565616b877ae8ed31d",
+      "src": "https://github.com/projekt0n/github-nvim-theme"
+    },
+    "gruber-darker.nvim": {
+      "rev": "98a2e141981cbd5a194a97eae024bf55af854579",
+      "src": "https://github.com/blazkowolf/gruber-darker.nvim"
+    },
     "gruvbox": {
       "rev": "697c00291db857ca0af00ec154e5bd514a79191f",
       "src": "https://github.com/morhetz/gruvbox"
@@ -32,6 +40,10 @@
     "img-clip.nvim": {
       "rev": "93fcf50924108262caec66b900077987dfcb7c7f",
       "src": "https://github.com/HakonHarnes/img-clip.nvim"
+    },
+    "lake.nvim": {
+      "rev": "e9104817277682034cf31069fd0f0615743968cd",
+      "src": "https://github.com/antonk52/lake.nvim"
     },
     "lsp-progress.nvim": {
       "rev": "ae52979ad412371ea6dc39ff70c8dfc681fb42b8",
@@ -140,6 +152,10 @@
     "render-markdown.nvim": {
       "rev": "07d088bf8bdadd159eb807b90eaee86a4778383f",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "rusty": {
+      "rev": "f310310991ecd50ca10745f8960cb5b8bd2ef208",
+      "src": "https://github.com/armannikoyan/rusty"
     },
     "snacks.nvim": {
       "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",

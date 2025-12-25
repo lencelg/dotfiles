@@ -1,4 +1,4 @@
-----------------------
+
 -- 通用 Neovim 设置 --
 ----------------------
 vim.opt.number = true                           -- 显示行号
@@ -24,17 +24,17 @@ vim.g.mapleader = ' '                           -- 设置 leader 键为空格
 -- 插件管理（vim.pack） --
 ----------------------
 vim.pack.add({
-    { src = 'https://github.com/morhetz/gruvbox' },        -- 主题
-    { src = 'https://github.com/catppuccin/nvim' },        -- 主题
-    { src = 'https://github.com/folke/tokyonight.nvim' },  -- 主题
-    { src = 'https://github.com/dracula/vim' },            -- 主题
-    { src = 'https://github.com/mason-org/mason.nvim' },   -- LSP 安装管理器
-    { src = 'https://github.com/neovim/nvim-lspconfig' },  -- LSP 配置
-    { src = 'https://github.com/nvim-mini/mini.pick' },    -- 文件/缓冲区选择器
-    { src = 'https://github.com/nvim-mini/mini.files' },   -- 文件浏览器
-    { src = 'https://github.com/nvim-mini/mini.pairs' },   -- 括号补全
-    { src = 'https://github.com/nvim-mini/mini.icons' },   -- 图标
-    { src = 'https://github.com/nvim-mini/mini.tabline' }, -- tabline
+    { src = 'https://github.com/armannikoyan/rusty' },               -- 主题
+    { src = 'https://github.com/antonk52/lake.nvim' },               -- 主题
+    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' }, -- 主题
+    { src = 'https://github.com/projekt0n/github-nvim-theme' },   -- 主题
+    { src = 'https://github.com/mason-org/mason.nvim' },          -- LSP 安装管理器
+    { src = 'https://github.com/neovim/nvim-lspconfig' },         -- LSP 配置
+    { src = 'https://github.com/nvim-mini/mini.pick' },           -- 文件/缓冲区选择器
+    { src = 'https://github.com/nvim-mini/mini.files' },          -- 文件浏览器
+    { src = 'https://github.com/nvim-mini/mini.pairs' },          -- 括号补全
+    { src = 'https://github.com/nvim-mini/mini.icons' },          -- 图标
+    { src = 'https://github.com/nvim-mini/mini.tabline' },        -- tabline
 })
 
 -- Treesitter安装并懒加载
@@ -98,7 +98,7 @@ vim.pack.add({
 vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     callback = function()
-        vim.cmd("colorscheme tokyonight")
+        vim.cmd("colorscheme github_dark_default")
     end,
 })
 
@@ -224,7 +224,7 @@ vim.lsp.config('lua_ls', {
                 library = vim.api.nvim_get_runtime_file('', true),
                 checkThirdParty = false,
             },
-            format = { enable = true }, -- 启用格式化
+            format = { enable = true}, -- 启用格式化
         },
     },
 })
@@ -293,13 +293,13 @@ end, { desc = 'next diagnostic' })
 ----------------------
 -- 自动命令 --
 ----------------------
--- 保存前自动格式化
-vim.api.nvim_create_autocmd('BufWritePre', {
-    callback = function()
-        vim.lsp.buf.format()
-    end,
-    pattern = '*',
-})
+-- -- 保存前自动格式化
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--     callback = function()
+--         vim.lsp.buf.format()
+--     end,
+--     pattern = '*',
+-- })
 
 -- 复制高亮提示
 vim.api.nvim_create_autocmd('TextYankPost', {

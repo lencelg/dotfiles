@@ -48,7 +48,7 @@ binds {
     // ─── Applications ───
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty"; }
     MOD+D                               hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: brave" { spawn-sh "brave"; }
+    MOD+B                               hotkey-overlay-title="Open Browser: qutebrowser" { spawn-sh "qutebrowser"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     
     // Please choose your own file manager
@@ -152,7 +152,8 @@ binds {
 
     // ─── Modes ───
     MOD+T                               { toggle-window-floating; }
-    MOD+F                               { fullscreen-window; }
+    MOD+SHIFT+F                               { fullscreen-window; }
+    MOD+F                               {maximize-window-to-edges; }
     MOD+W                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
@@ -277,6 +278,7 @@ binds {
     window-rule {
         match app-id="wechat"
         match app-id="qq"
+        match app-id="Qt Creator"
         open-on-workspace "chat"
     }
     window-rule {
