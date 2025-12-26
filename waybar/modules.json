@@ -57,27 +57,6 @@
       "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
 
-  // wofi Application Launcher
-  "custom/appmenu": {
-    "format": "   ",
-    "on-click": "sleep 0.2;wofi -show drun -replace",
-    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
-  },
-
-  // wofi Application Launcher
-  "custom/appmenuicon": {
-    "format": "",
-    "on-click": "sleep 0.2;wofi -show drun -replace",
-    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
-  },
-
-  // Power Menu
-  "custom/exit": {
-    "format": " 󰐥 ",
-    "on-click": "~/.config/waybar/scripts/power-menu.sh",
-    "tooltip-format": "Power Menu"
-  },
-
   // Keyboard State
   "keyboard-state": {
     "numlock": true,
@@ -92,18 +71,18 @@
   // System tray
   "tray": {
     "icon-size": 21,
-    "spacing": 10
+    "spacing": 13
   },
 
   //CPU, disk ,memory
   "disk":{
 	"format": "󰉉  {percentage_free}%",
 	},
-   "sway/mode": {
+  "sway/mode": {
 	"format": "<span style=\"italic\">{}</span>"
 	},
-    "clock": {
-	"format": "  {:%Y-%m-%d    󰅐  %H:%M}",
+  "clock": {
+  "format": "  {:%Y-%m-%d    󰅐  %H:%M}",
 	},
 	"cpu": {
 	"format": "󰻠  {usage}%"
@@ -113,12 +92,6 @@
 	"format": "  {}%"
 	},
 
-  // Clock
-  //"clock": {
-   // "format": "{:%H:%M %a}",
-    //"on-click": "ags -t calendar",
-   // "tooltip": false
- // },
 
   "niri/language": {
     "format": "/ K {short}"

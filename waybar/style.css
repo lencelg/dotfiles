@@ -10,22 +10,11 @@ window#waybar {
     padding: 0;
 }
 
-/* Left-most: Arch icon */
-#custom-appmenu {
-  font-size: 4;
-  background-image: url('/usr/share/icons/cachyos.svg');
-  background-color: #1e222a;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding: 0px 12px;
-    
-}
 
 /* Right-most: Clock */
 #clock {
     font-size: 15px;
-    background-color: #1e222a;
+    background-color: rgba(12, 12 ,12, 0.4);
     color: #c0c0c0;
     border-radius: 0px;
     padding: 0px 8px;
@@ -72,15 +61,6 @@ window#waybar {
     border-width: 0px;
 }
 
-/* Power/exit button */
-#custom-exit {
-    background-color: #00ac89;
-    font-size: 14px;
-    font-weight: 800;
-    color: #0f1117;
-    padding: 0px 6px;
-    margin: 2px 2px 2px 0;
-}
 
 /* Tooltips */
 tooltip {
@@ -92,23 +72,48 @@ tooltip {
 
 /* Taskbar */
 #taskbar {
-    background-color: #1e222a;
     margin: 0px;
     border-radius: 0px;
     font-weight: normal;
 }
 
 /* All system info modules */
+#pulseaudio{
+    font-size: 16px;
+    background-color: rgba(12, 12 ,12, 0.4);
+}
+#network{
+    font-size: 16px;
+    background-color: rgba(12, 12 ,12, 0.4);
+}
+#bluetooth{
+    font-size: 16px;
+    background-color: rgba(12, 12 ,12, 0.4);
+}
+#battery {
+    font-size: 16px;
+    background-color: rgba(12, 12 ,12, 0.4);
+}
+#cpu{
+    font-size: 16px;
+    background-color: rgba(12, 12 ,12, 0.4);
+}
+#memory{
+    font-size: 16px;
+    background-color: rgba(12, 12 ,12, 0.4);
+}
+#disk{
+    font-size: 16px;
+    background-color: rgba(12, 12 ,12, 0.4);
+}
+#temperature{
+    font-size: 16px;
+    background-color: rgba(12, 12 ,12, 0.4);
+}
+#tray{
+    background-color: rgba(12, 12 ,12, 0.4);
+}
 #backlight,
-#pulseaudio,
-#network,
-#bluetooth,
-#battery,
-#tray,
-#cpu,
-#memory,
-#disk,
-#temperature,
 #custom-updates,
 #custom-notification {
     background-color: #1e222a;
