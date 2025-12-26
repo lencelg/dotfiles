@@ -118,9 +118,9 @@ require("lualine").setup({
 vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
     callback = function()
         -- Mason
-        require('mason').setup({})
+        require('mason').setup()
         -- mini.pick 配置
-        require('mini.pick').setup({})
+        require('mini.pick').setup()
         -- mini.pari 配置
         require('mini.pairs').setup()
         require('mini.icons').setup()
@@ -264,9 +264,10 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { desc = 'Increase w
 -- 文件/插件快捷键
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<ESC>:write<CR>', { desc = 'save file' })
 vim.keymap.set('n', '<leader>e', ':lua MiniFiles.open()<CR>', { desc = 'open file explorer' })
-vim.keymap.set('n', '<leader>ff', ':Pick files<CR>', { desc = 'open file picker' })
-vim.keymap.set('n', '<leader>fh', ':Pick help<CR>', { desc = 'open help picker' })
-vim.keymap.set('n', '<leader>fb', ':Pick buffers<CR>', { desc = 'open buffer picker' })
+vim.keymap.set('n', '<leader>f', ':Pick files<CR>', { desc = 'open file picker' })
+vim.keymap.set('n', '<leader>h', ':Pick help<CR>', { desc = 'open help picker' })
+vim.keymap.set('n', '<leader>g', ':Pick grep live<CR>', { desc = 'open grep live picker' })
+vim.keymap.set('n', '<leader>b', ':Pick buffer<CR>', { desc = 'open buffer picker' })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = 'diagnostic messages' })
 -- LSP 快捷键
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
