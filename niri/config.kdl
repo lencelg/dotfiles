@@ -36,9 +36,15 @@ output "AU Optronics B156HAN15.H  Unknown" {
     scale 1 // No scaling 
 }
 //
-workspace "work" {}
-workspace "brow" {}
-workspace "chat" {}
+workspace "work" {
+    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
+}
+workspace "brow" {
+    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
+}
+workspace "chat" {
+    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
+}
 
 // ────────────── Keybindings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
