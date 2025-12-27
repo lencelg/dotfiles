@@ -36,12 +36,9 @@ output "AU Optronics B156HAN15.H  Unknown" {
     scale 1 // No scaling 
 }
 //
-workspace "work" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
-}
-workspace "chat" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
-}
+workspace "work" {}
+workspace "brow" {}
+workspace "chat" {}
 
 // ────────────── Keybindings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
@@ -79,9 +76,7 @@ binds {
     MOD+RIGHT                           { focus-column-right; }
     MOD+L                               { focus-column-right; }
     MOD+UP                              { focus-window-up; }
-    MOD+K                               { focus-window-up; }
     MOD+DOWN                            { focus-window-down; }
-    MOD+J                               { focus-window-down; }
 
     MOD+CTRL+LEFT                       { move-column-left; }
     MOD+CTRL+H                          { move-column-left; }
@@ -108,8 +103,8 @@ binds {
     MOD+SHIFT+CTRL+DOWN                 { move-column-to-monitor-down; }
 
     // ─── Workspace Switching ───
-    MOD+WHEELSCROLLDOWN                 cooldown-ms=150 { focus-workspace-down; }
-    MOD+WHEELSCROLLUP                   cooldown-ms=150 { focus-workspace-up; }
+    MOD+J                               cooldown-ms=150 { focus-workspace-down; }
+    MOD+K                               cooldown-ms=150 { focus-workspace-up; }
     MOD+CTRL+WHEELSCROLLDOWN            cooldown-ms=150 { move-column-to-workspace-down; }
     MOD+CTRL+WHEELSCROLLUP              cooldown-ms=150 { move-column-to-workspace-up; }
 
@@ -261,6 +256,11 @@ binds {
     }
 
     window-rule {
+        match app-id="qutebrowser"
+        match app-id="brave"
+        open-on-workspace "brow"
+    }
+    window-rule {
         match app-id="kitty"
         open-maximized-to-edges true
         opacity 0.95
@@ -269,10 +269,6 @@ binds {
     window-rule {
         match app-id="wechat"
         match app-id="qq"
-        open-on-workspace "chat"
-    }
-    window-rule {
-        match app-id="flameshot"
         open-on-workspace "chat"
     }
     window-rule {
