@@ -1,4 +1,3 @@
-
 -- 通用 Neovim 设置 --
 ----------------------
 vim.opt.number = true                           -- 显示行号
@@ -24,8 +23,8 @@ vim.g.mapleader = ' '                           -- 设置 leader 键为空格
 -- 插件管理（vim.pack） --
 ----------------------
 vim.pack.add({
-    { src = 'https://github.com/armannikoyan/rusty' },               -- 主题
-    { src = 'https://github.com/antonk52/lake.nvim' },               -- 主题
+    { src = 'https://github.com/armannikoyan/rusty' },            -- 主题
+    { src = 'https://github.com/antonk52/lake.nvim' },            -- 主题
     { src = 'https://github.com/blazkowolf/gruber-darker.nvim' }, -- 主题
     { src = 'https://github.com/projekt0n/github-nvim-theme' },   -- 主题
     { src = 'https://github.com/mason-org/mason.nvim' },          -- LSP 安装管理器
@@ -36,6 +35,7 @@ vim.pack.add({
     { src = 'https://github.com/nvim-mini/mini.icons' },          -- 图标
     { src = 'https://github.com/nvim-mini/mini.tabline' },        -- tabline
 })
+
 
 -- Treesitter安装并懒加载
 vim.pack.add({
@@ -82,7 +82,16 @@ vim.pack.add({
     end
 })
 
-
+vim.pack.add({
+    'https://github.com/nvim-treesitter/nvim-treesitter',
+    'https://github.com/nvim-mini/mini.nvim',            -- if you use the mini.nvim suite
+    -- 'https://github.com/nvim-mini/mini.icons',        -- if you use standalone mini plugins
+    -- 'https://github.com/nvim-tree/nvim-web-devicons', -- if you prefer nvim-web-devicons
+    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+})
+require('render-markdown').setup({
+    render_modes = { 'n', 'c', 't' },
+})
 -- -- autopairs
 -- vim.pack.add({
 --     { src = "https://github.com/windwp/nvim-autopairs" },
@@ -90,6 +99,7 @@ vim.pack.add({
 -- require('nvim-autopairs').setup({})
 --
 -- setup must be called before loading
+
 
 ----------------------
 -- 颜色主题 --
@@ -224,7 +234,7 @@ vim.lsp.config('lua_ls', {
                 library = vim.api.nvim_get_runtime_file('', true),
                 checkThirdParty = false,
             },
-            format = { enable = true}, -- 启用格式化
+            format = { enable = true }, -- 启用格式化
         },
     },
 })

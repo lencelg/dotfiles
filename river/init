@@ -13,6 +13,8 @@
 # auto-start session
 way-displays &
 waybar &
+clash-verge &
+fcitx5 &
 way-displays > /tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1 &
 mako > "/tmp/mako.${XDG_VTNR}.${USER}.log" 2>&1 &
 swww-daemon &
@@ -24,7 +26,7 @@ riverctl map normal Super E spawn nemo
 riverctl map normal Super D spawn wofi 
 
 # Super+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super Return spawn foot
+riverctl map normal Super Return spawn kitty
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -157,7 +159,7 @@ do
 done
 
 # Set background and border color
-riverctl border-color-focused  0x00
+riverctl border-color-focused  0x00ff00
 riverctl border-color-unfocused 0x000000ff
 
 # Set keyboard repeat rate
