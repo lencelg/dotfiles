@@ -20,3 +20,4 @@ personal dotfiles
 > * i3status-rs
 > * way-displays
 > * wayshot
+> * rivercarro
