@@ -1,19 +1,10 @@
-#!/bin/sh
-
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
-# See the river(1), riverctl(1), and rivercarro(1) man pages for complete
-# documentation.
+#!/bin/bash
 mod=Mod4
 
-# Note: the "$mod" modifier is also known as Logo, GUI, Windows, Mod4, etc.
+riverctl spawn "$HOME/.config/river/status" &
+riverctl spawn "$HOME/.config/river/bar" &
 
-# auto-start session
 way-displays &
-i3bar-river &
 clash-verge &
 fcitx5 &
 way-displays > /tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1 &
@@ -21,20 +12,21 @@ mako > "/tmp/mako.${XDG_VTNR}.${USER}.log" 2>&1 &
 swww-daemon &
 swww img "~/.local/share/background/4.png" 
 
-# personal config few lines below
 riverctl map normal $mod b spawn qutebrowser
 riverctl map normal $mod e spawn nemo
 riverctl map normal $mod d spawn wofi 
 riverctl map normal ${mod}+Alt l spawn swaylock
 riverctl map normal Control+Shift 1 spawn 'wayshot -g'
-#
-riverctl map normal $mod Return spawn foot
+riverctl map normal $mod Return spawn kitty 
+riverctl map normal ${mod}+Shift e exit
 
 riverctl map normal $mod q close
-riverctl map normal ${mod}+Shift e exit
 
 riverctl map normal $mod j focus-view next
 riverctl map normal $mod k focus-view previous
+
+riverctl map normal $mod h send-layout-cmd rivercarro "main-ratio -0.05"
+riverctl map normal $mod l send-layout-cmd rivercarro "main-ratio +0.05"
 
 riverctl map normal ${mod}+Shift j swap next
 riverctl map normal ${mod}+Shift k swap previous
@@ -48,12 +40,13 @@ riverctl map normal ${mod}+Shift Comma send-to-output previous
 riverctl map normal $mod z zoom
 
 # $mod+Alt+{H,J,K,L} to move views
-riverctl map normal ${mod}+Alt H move left 100
-riverctl map normal ${mod}+Alt J move down 100
-riverctl map normal ${mod}+Alt K move up 100
-riverctl map normal ${mod}+Alt L move right 100
+riverctl map normal ${mod}+Alt H move left 50
+riverctl map normal ${mod}+Alt J move down 50
+riverctl map normal ${mod}+Alt K move up 50
+riverctl map normal ${mod}+Alt L move right 50
 
-# $mod+Alt+Control+{H,J,K,L} to snap views to screen edges
+# $mod+Alt+Control+{H,J,K,L} to snap views to screen edges 
+# float Windows only
 riverctl map normal ${mod}+Alt+Control H snap left
 riverctl map normal ${mod}+Alt+Control J snap down
 riverctl map normal ${mod}+Alt+Control K snap up
@@ -95,9 +88,7 @@ riverctl map normal $mod f toggle-fullscreen
 
 
 # ------------------------------------------------------------------------------------------
-# config for rivercarro
-riverctl map normal $mod h send-layout-cmd rivercarro "main-ratio -0.05"
-riverctl map normal $mod l send-layout-cmd rivercarro "main-ratio +0.05"
+# resize Windows
 
 # $mod+Shift+H and $mod+Shift+L to increment/decrement the main count of rivercarro(1)
 # $mod+{Up,Right,Down,Left} to change layout orientation
@@ -106,7 +97,6 @@ riverctl map normal $mod Right send-layout-cmd rivercarro "main-location right"
 riverctl map normal $mod Down  send-layout-cmd rivercarro "main-location bottom"
 riverctl map normal $mod Left  send-layout-cmd rivercarro "main-location left"
 
-riverctl map normal $mod m     send-layout-cmd rivercarro "main-location monocle"
 riverctl map normal $mod w     send-layout-cmd rivercarro "main-location-cycle left,monocle"
 # ------------------------------------------------------------------------------------------
 
@@ -164,8 +154,10 @@ riverctl set-repeat 30 300
 riverctl rule-add -app-id 'float*' -title 'foo' float
 riverctl rule-add -app-id "bar" csd
 riverctl rule-add -app-id "*" ssd
+riverctl rule-add -app-id 'brave-browser' tags $((1 << 1))
+riverctl rule-add -app-id 'org.qutebrowser.qutebrowser' tags $((1 << 1))
+riverctl rule-add -app-id 'wechat' tags $((1 << 2))
+riverctl rule-add -app-id 'QQ' tags $((1 << 2))
 
-# Set the default layout generator to be rivercarro and start it.
-# River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivercarro
 rivercarro -outer-gaps 0 -per-tag &

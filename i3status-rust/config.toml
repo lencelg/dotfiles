@@ -23,21 +23,17 @@ short = " $title.str(max_w:20) |"
 
 [[block]]
 block = "weather"
-format = "up $sunrise.datetime(f:'%R') down $sunset.datetime(f:'%R')"
+format = "sunrise $sunrise.datetime(f:'%R') sunset $sunset.datetime(f:'%R')"
+interval = 36000
 [block.service]
 name = "metno"
 coordinates = ["22.2769", "113.5678"]
+forecast_hours = 12
 
 [[block]]
 block = "net"
 format = "$ip "
 
-[[block]]
-block = "temperature"
-format = " $icon $max max "
-format_alt = " $icon $min min, $max max, $average avg "
-interval = 10
-chip = "*-isa-*"
 
 [[block]]
 block = "cpu"

@@ -9,6 +9,8 @@ input {
         xkb {
             layout "us" // Use the German keyboard layout
         }
+        repeat-delay 300
+        repeat-rate 25
         numlock // Enable numlock on startup
     }
 
@@ -278,7 +280,7 @@ binds {
     }
     window-rule {
         match app-id="kitty"
-        open-maximized-to-edges true
+//        open-maximized-to-edges true
         opacity 0.95
     }
 

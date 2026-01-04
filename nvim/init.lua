@@ -18,6 +18,7 @@ vim.opt.foldmethod = 'expr'                     -- 折叠方式使用表达式
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- 使用 Treesitter 表达式折叠
 vim.opt.foldlevel = 99                          -- 打开文件时默认不折叠
 vim.g.mapleader = ' '                           -- 设置 leader 键为空格
+vim.opt.wrap = true
 
 ----------------------
 -- 插件管理（vim.pack） --
@@ -34,6 +35,7 @@ vim.pack.add({
     { src = 'https://github.com/nvim-mini/mini.pairs' },          -- 括号补全
     { src = 'https://github.com/nvim-mini/mini.icons' },          -- 图标
     { src = 'https://github.com/nvim-mini/mini.tabline' },        -- tabline
+    { src = 'https://github.com/mrcjkb/rustaceanvim'},            -- rust
 })
 
 
@@ -49,7 +51,6 @@ vim.pack.add({
                 vim.opt.runtimepath:append(plug_data.path)
                 ---@diagnostic disable-next-line: missing-fields
                 require('nvim-treesitter').setup({
-                    ensure_installed = { 'lua', 'python', 'json', 'vim', 'markdown', 'c', 'c++' }, -- 安装的语言
                     highlight = { enable = true },                                                 -- 语法高亮
                     indent = { enable = true },                                                    -- 缩进
                 })
@@ -180,7 +181,7 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
                 -- Maximum number of windows to show side by side
                 max_number = math.huge,
                 -- Whether to show preview of file/directory under cursor
-                preview = true,
+                preview = false,
                 -- Width of focused window
                 width_focus = 50,
                 -- Width of non-focused window
@@ -240,7 +241,7 @@ vim.lsp.config('lua_ls', {
 })
 
 -- 启用 LSP
-vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd' })
+vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd', 'bash-language-server', 'harper-ls' })
 -- LSP 诊断显示
 vim.diagnostic.config({ virtual_text = true }) -- 行内文本提示
 -- vim.diagnostic.config({ virtual_lines = true }) -- 虚拟行提示（可选）

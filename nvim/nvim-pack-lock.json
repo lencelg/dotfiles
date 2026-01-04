@@ -157,6 +157,14 @@
       "rev": "07d088bf8bdadd159eb807b90eaee86a4778383f",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
+    "rust.vim": {
+      "rev": "889b9a7515db477f4cb6808bef1769e53493c578",
+      "src": "https://github.com/rust-lang/rust.vim"
+    },
+    "rustaceanvim": {
+      "rev": "f8bf440870c138bf45bc82c42f55d280569964b8",
+      "src": "https://github.com/mrcjkb/rustaceanvim"
+    },
     "rusty": {
       "rev": "f310310991ecd50ca10745f8960cb5b8bd2ef208",
       "src": "https://github.com/armannikoyan/rusty"

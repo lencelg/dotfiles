@@ -1,15 +1,5 @@
 font = "JetBrainsMono Nerd Font 12"
 height = 28
 command = "i3status-rs"
-# WM-specific options
 [wm.river]
 max_tag = 9 # Show only the first nine tags
-
-# Per output overrides
-# [output.your-output-name]
-# right now only "enable" option is available
-# enable = false
-#
-# You can have any number of overrides
-# [output.eDP-1]
-# enable = false
