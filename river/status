@@ -13,7 +13,7 @@ disk() {
 }
 
 datetime() {
-    datetime="$(date +"%A %Y-%m-%d %H:%M")"
+    datetime="$(date -u +"%A %Y-%m-%d %H:%M")"
 }
 
 bat() {

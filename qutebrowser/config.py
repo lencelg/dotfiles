@@ -34,7 +34,6 @@ c.url.searchengines = {
         'DEFAULT': 'https://duckduckgo.com/?q={}',
         '!gg': 'https://www.google.com/search?q={}',
         '!bl' : 'https://search.bilibili.com/all?keyword={}&search_source=1',
-        '!gh': 'https://github.com/search?o=desc&q={}&s=stars',
         '!yt': 'https://www.youtube.com/results?search_query={}',
         }
 
@@ -45,6 +44,11 @@ c.auto_save.session = True # save tabs on quit/restart
 # unbind key
 config.unbind('d')
 config.unbind('u')
+config.unbind('m')
+config.unbind('<Ctrl-t>')
+config.unbind('tsh')
+config.unbind('tsH')
+config.unbind('tsu')
 
 # keybinding changes
 config.bind('x', 'tab-close')
@@ -67,19 +71,20 @@ config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('gJ', 'tab-move +')
 config.bind('gK', 'tab-move -')
-config.bind('gm', 'tab-move')
+config.bind('ts', 'cmd-set-text -s :tab-select')
 
 # dark mode setup
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = True 
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.policy.images = 'never'
 config.set('colors.webpage.darkmode.enabled', False, 'file://*')
 
+c.aliases['darkmode'] = 'config-cycle colors.webpage.darkmode.enabled'
 # styles, cosmetics
 # c.content.user_stylesheets = ["~/.config/qutebrowser/styles/youtube-tweaks.css"]
 c.tabs.padding = {'top': 5, 'bottom': 5, 'left': 9, 'right': 9}
 c.tabs.indicator.width = 0 # no tab indicators
-# c.window.transparent = True # apparently not needed
+# c.window.transparent = true # apparently not needed
 c.tabs.width = '7%'
 
 # fonts
@@ -92,21 +97,21 @@ c.fonts.web.family.standard = 'monospace'
 
 # privacy - adjust these settings based on your preference
 # config.set("completion.cmd_history_max_items", 0)
-# config.set("content.private_browsing", True)
+# config.set("content.private_browsing", true)
 config.set("content.webgl", False, "*")
 config.set("content.canvas_reading", False)
 config.set("content.geolocation", False)
 config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
 config.set("content.cookies.accept", "all")
 config.set("content.cookies.store", True)
-# config.set("content.javascript.enabled", False) # tsh keybind to toggle
+# config.set("content.javascript.enabled", false) # tsh keybind to toggle
 
-# Adblocking info -->
-# For yt ads: place the greasemonkey script yt-ads.js in your greasemonkey folder (~/.config/qutebrowser/greasemonkey).
-# The script skips through the entire ad, so all you have to do is click the skip button.
-# Yeah it's not ublock origin, but if you want a minimal browser, this is a solution for the tradeoff.
-# You can also watch yt vids directly in mpv, see qutebrowser FAQ for how to do that.
-# If you want additional blocklists, you can get the python-adblock package, or you can uncomment the ublock lists here.
+# adblocking info -->
+# for yt ads: place the greasemonkey script yt-ads.js in your greasemonkey folder (~/.config/qutebrowser/greasemonkey).
+# the script skips through the entire ad, so all you have to do is click the skip button.
+# yeah it's not ublock origin, but if you want a minimal browser, this is a solution for the tradeoff.
+# you can also watch yt vids directly in mpv, see qutebrowser faq for how to do that.
+# if you want additional blocklists, you can get the python-adblock package, or you can uncomment the ublock lists here.
 c.content.blocking.enabled = True
 c.content.blocking.method = 'both'
 c.content.blocking.adblock.lists = [
@@ -116,20 +121,41 @@ c.content.blocking.adblock.lists = [
   "https://secure.fanboy.co.nz/fanboy-annoyance.txt",]
 # c.content.blocking.method = 'adblock' # uncomment this if you install python-adblock
 # c.content.blocking.adblock.lists = [
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2023.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2024.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/legacy.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2020.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2021.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2022.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2023.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2024.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/badware.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/privacy.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/badlists.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances-cookies.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances-others.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/badlists.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/quick-fixes.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/resource-abuse.txt",
+#         "https://github.com/ublockorigin/uassets/raw/master/filters/unbreak.txt"]
+cmd_trans_script = "spawn --userscript ~/.config/qutebrowser/greasemonkey/translate"
+config.bind("tr", cmd_trans_script)
+
+c.bindings.commands["caret"] = {
+    "tr": cmd_trans_script
+}
+
+
+enabled_scripts = [
+]
+
+# 禁用的插件 (暂时不想用，但不想删文件，下次启用不用重新下载)
+disabled_scripts = [
+]
+
+# 注入环境变量
+os.environ["QB_GM_LIST"] = " ".join(enabled_scripts)
+os.environ["QB_GM_DISABLED_LIST"] = " ".join(disabled_scripts)
+
+# 绑定快捷键 gr 刷新当前配置并调用同步脚本
+config.bind("gr", "config-source ;; spawn --userscript ~/.config/qutebrowser/greasemonkey/plugins_mg")

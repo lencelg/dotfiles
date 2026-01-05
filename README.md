@@ -1,23 +1,24 @@
 # dotfiles
 personal dotfiles
 * niri
-> * kitty
 > * waybar
-> * wofi
-> * mako
-> * zsh
 > * polkit-kde-authentication-agent
-> * nvim
-> * yazi
 * river
 > * foot
-> * wofi
 > * mako
-> * zsh
-> * nvim
-> * yazi
-> * i3bar-river
-> * i3status-rs
 > * way-displays
 > * wayshot
 > * rivercarro
+> * sandbar
+## both needed
+* qutebrowser(trans-shell)
+* kitty
+* wofi
+* yazi
+* nvim
+* zsh
+* mako
+* nemo
+## not necessary 
+* i3bar-river
+* i3status-rs

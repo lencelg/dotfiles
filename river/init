@@ -15,7 +15,7 @@ swww img "~/.local/share/background/4.png"
 riverctl map normal $mod b spawn qutebrowser
 riverctl map normal $mod e spawn nemo
 riverctl map normal $mod d spawn wofi 
-riverctl map normal ${mod}+Alt l spawn swaylock
+riverctl map normal ${mod}+Alt p spawn swaylock
 riverctl map normal Control+Shift 1 spawn 'wayshot -g'
 riverctl map normal $mod Return spawn kitty 
 riverctl map normal ${mod}+Shift e exit
@@ -154,7 +154,6 @@ riverctl set-repeat 30 300
 riverctl rule-add -app-id 'float*' -title 'foo' float
 riverctl rule-add -app-id "bar" csd
 riverctl rule-add -app-id "*" ssd
-riverctl rule-add -app-id 'brave-browser' tags $((1 << 1))
 riverctl rule-add -app-id 'org.qutebrowser.qutebrowser' tags $((1 << 1))
 riverctl rule-add -app-id 'wechat' tags $((1 << 2))
 riverctl rule-add -app-id 'QQ' tags $((1 << 2))
