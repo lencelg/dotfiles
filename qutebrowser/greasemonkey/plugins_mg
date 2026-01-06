@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ================= 配置 =================
-GM_DIR="$HOME/.local/share/qutebrowser/greasemonkey"
+GM_DIR="$HOME/.config/qutebrowser/greasemonkey/plugins"
 DISABLED_DIR="$GM_DIR/disabled"
 MAP_FILE="$GM_DIR/.url_map"
 

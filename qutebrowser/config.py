@@ -113,31 +113,28 @@ config.set("content.cookies.store", True)
 # you can also watch yt vids directly in mpv, see qutebrowser faq for how to do that.
 # if you want additional blocklists, you can get the python-adblock package, or you can uncomment the ublock lists here.
 c.content.blocking.enabled = True
-c.content.blocking.method = 'both'
 c.content.blocking.adblock.lists = [
-  "https://easylist.to/easylist/easylist.txt",
-  "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
-  "https://easylist.to/easylist/easyprivacy.txt",
-  "https://secure.fanboy.co.nz/fanboy-annoyance.txt",]
-# c.content.blocking.method = 'adblock' # uncomment this if you install python-adblock
-# c.content.blocking.adblock.lists = [
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/legacy.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2020.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2021.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2022.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2023.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2024.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/badware.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/privacy.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/badlists.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances-cookies.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances-others.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/badlists.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/quick-fixes.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/resource-abuse.txt",
-#         "https://github.com/ublockorigin/uassets/raw/master/filters/unbreak.txt"]
+        "https://github.com/ublockorigin/uassets/raw/master/filters/legacy.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/filters.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2020.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2021.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2022.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2023.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/filters-2024.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/badware.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/privacy.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/badlists.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances-cookies.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/annoyances-others.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/badlists.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/quick-fixes.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/resource-abuse.txt",
+        "https://github.com/ublockorigin/uassets/raw/master/filters/unbreak.txt",
+        "https://easylist.to/easylist/easylist.txt",
+        "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+        "https://easylist.to/easylist/easyprivacy.txt",
+        "https://secure.fanboy.co.nz/fanboy-annoyance.txt",]
 cmd_trans_script = "spawn --userscript ~/.config/qutebrowser/greasemonkey/translate"
 config.bind("tr", cmd_trans_script)
 
@@ -147,6 +144,8 @@ c.bindings.commands["caret"] = {
 
 
 enabled_scripts = [
+        "https://greasyfork.org/zh-CN/scripts/420352-csdn-focus",
+        "https://greasyfork.org/zh-CN/scripts/396171-%E7%9F%A5%E4%B9%8E%E5%85%8D%E7%99%BB%E5%BD%95",
 ]
 
 # 禁用的插件 (暂时不想用，但不想删文件，下次启用不用重新下载)
