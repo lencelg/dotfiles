@@ -6,3 +6,8 @@ for dot in "${dots[@]}"; do
     rm -rf ~/dotfiles/$dot
     cp -r ~/.config/$dot ~/dotfiles/
 done
+
+cd ~/dotfiles
+git add --all
+git commit -m "update"
+git push origin main

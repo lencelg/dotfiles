@@ -6,19 +6,18 @@ vim.opt.cursorline = true                       -- 高亮光标所在行
 vim.opt.expandtab = true                        -- 使用空格代替 Tab
 vim.opt.tabstop = 4                             -- Tab 键宽度为 4
 vim.opt.shiftwidth = 4                          -- 缩进宽度为 4
-vim.opt.wrap = false                            -- 不自动换行
+vim.opt.wrap = true                             -- 不自动换行
 vim.opt.scrolloff = 5                           -- 上下保留 5 行作为缓冲
 vim.opt.signcolumn = 'yes'                      -- 永远显示 sign column（诊断标记）
 vim.opt.winborder = 'rounded'                   -- 窗口边框样式
 vim.opt.ignorecase = true                       -- 搜索忽略大小写
 vim.opt.smartcase = true                        -- 当包含大写字母时，搜索区分大小写
-vim.opt.hlsearch = false                        -- 搜索匹配不高亮
+vim.opt.hlsearch = true                         -- 搜索匹配不高亮
 vim.opt.incsearch = true                        -- 增量搜索
 vim.opt.foldmethod = 'expr'                     -- 折叠方式使用表达式
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- 使用 Treesitter 表达式折叠
 vim.opt.foldlevel = 99                          -- 打开文件时默认不折叠
-vim.g.mapleader = ' '                           -- 设置 leader 键为空格
-vim.opt.wrap = true
+vim.opt.inccommand = 'split'                     -- 替换分栏
 
 ----------------------
 -- 插件管理（vim.pack） --
@@ -35,7 +34,7 @@ vim.pack.add({
     { src = 'https://github.com/nvim-mini/mini.pairs' },          -- 括号补全
     { src = 'https://github.com/nvim-mini/mini.icons' },          -- 图标
     { src = 'https://github.com/nvim-mini/mini.tabline' },        -- tabline
-    { src = 'https://github.com/mrcjkb/rustaceanvim'},            -- rust
+    { src = 'https://github.com/mrcjkb/rustaceanvim' },           -- rust
 })
 
 
@@ -51,8 +50,8 @@ vim.pack.add({
                 vim.opt.runtimepath:append(plug_data.path)
                 ---@diagnostic disable-next-line: missing-fields
                 require('nvim-treesitter').setup({
-                    highlight = { enable = true },                                                 -- 语法高亮
-                    indent = { enable = true },                                                    -- 缩进
+                    highlight = { enable = true }, -- 语法高亮
+                    indent = { enable = true },    -- 缩进
                 })
             end,
         })
@@ -85,7 +84,7 @@ vim.pack.add({
 
 vim.pack.add({
     'https://github.com/nvim-treesitter/nvim-treesitter',
-    'https://github.com/nvim-mini/mini.nvim',            -- if you use the mini.nvim suite
+    'https://github.com/nvim-mini/mini.nvim', -- if you use the mini.nvim suite
     -- 'https://github.com/nvim-mini/mini.icons',        -- if you use standalone mini plugins
     -- 'https://github.com/nvim-tree/nvim-web-devicons', -- if you prefer nvim-web-devicons
     'https://github.com/MeanderingProgrammer/render-markdown.nvim',
@@ -241,7 +240,7 @@ vim.lsp.config('lua_ls', {
 })
 
 -- 启用 LSP
-vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd', 'bash-language-server', 'harper-ls' })
+vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd', 'bash-language-server', 'harper-ls', 'python-language-server' })
 -- LSP 诊断显示
 vim.diagnostic.config({ virtual_text = true }) -- 行内文本提示
 -- vim.diagnostic.config({ virtual_lines = true }) -- 虚拟行提示（可选）

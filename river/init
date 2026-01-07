@@ -14,7 +14,7 @@ swww img "~/.local/share/background/4.png"
 
 riverctl map normal $mod b spawn qutebrowser
 riverctl map normal $mod e spawn nemo
-riverctl map normal $mod d spawn wofi 
+riverctl map normal $mod d spawn wmenu-run 
 riverctl map normal ${mod}+Alt p spawn swaylock
 riverctl map normal Control+Shift 1 spawn 'wayshot -g'
 riverctl map normal $mod Return spawn kitty 
