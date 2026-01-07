@@ -39,7 +39,7 @@ solarnoon() {
 }
 
 display() {
-	echo "all status [🌅 $sunrise ☀️ $solarnoon 🌇 $sunset ⏳ $solarmidnight] [💾 $memory] [💻 $cpu] [💽 $disk] [🔋 $bat] [🔉 $vol] [$datetime]" >"$FIFO"
+	echo "all status 🌅 $sunrise ☀️ $solarnoon 🌇 $sunset ⏳ $solarmidnight | 💾 $memory | 💻 $cpu | 💽 $disk | 🔋 $bat | 🔉 $vol | $datetime" >"$FIFO"
 }
 
 

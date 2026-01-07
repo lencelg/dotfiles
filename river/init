@@ -17,7 +17,7 @@ riverctl map normal $mod e spawn nemo
 riverctl map normal $mod d spawn wmenu-run 
 riverctl map normal ${mod}+Alt p spawn swaylock
 riverctl map normal Control+Shift 1 spawn 'wayshot -g'
-riverctl map normal $mod Return spawn kitty 
+riverctl map normal $mod Return spawn foot 
 riverctl map normal ${mod}+Shift e exit
 
 riverctl map normal $mod q close

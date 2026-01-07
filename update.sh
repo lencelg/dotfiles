@@ -7,6 +7,9 @@ for dot in "${dots[@]}"; do
     cp -r ~/.config/$dot ~/dotfiles/
 done
 
+cp ~/.zshrc ~/dotfiles/
+cp ~/.bashrc ~/dotfiles/
+
 cd ~/dotfiles
 git add --all
 git commit -m "update"
