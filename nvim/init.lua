@@ -18,6 +18,7 @@ vim.opt.foldmethod = 'expr'                     -- 折叠方式使用表达式
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- 使用 Treesitter 表达式折叠
 vim.opt.foldlevel = 99                          -- 打开文件时默认不折叠
 vim.opt.inccommand = 'split'                     -- 替换分栏
+vim.g.mapleader= " "
 
 ----------------------
 -- 插件管理（vim.pack） --
