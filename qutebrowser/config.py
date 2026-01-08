@@ -26,8 +26,8 @@ def read_xresources(prefix):
 # c.url.default_page = ""
 
 c.tabs.title.format = "{audio}{current_title}"
-c.fonts.web.size.default = 20
-c.zoom.default = 125
+c.fonts.web.size.default = 15
+c.zoom.default = 110
 
 c.url.searchengines = {
 # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
@@ -88,12 +88,12 @@ c.tabs.indicator.width = 0 # no tab indicators
 c.tabs.width = '7%'
 
 # fonts
-c.fonts.default_family = []
-c.fonts.default_size = '13pt'
-c.fonts.web.family.fixed = 'monospace'
-c.fonts.web.family.sans_serif = 'monospace'
-c.fonts.web.family.serif = 'monospace'
-c.fonts.web.family.standard = 'monospace'
+c.fonts.default_family = "serif"
+c.fonts.default_size = '12pt'
+# c.fonts.web.family.fixed = 'monospace'
+# c.fonts.web.family.sans_serif = 'monospace'
+# c.fonts.web.family.serif = 'monospace'
+# c.fonts.web.family.standard = 'monospace'
 
 # privacy - adjust these settings based on your preference
 # config.set("completion.cmd_history_max_items", 0)
