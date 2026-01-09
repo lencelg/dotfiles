@@ -10,7 +10,7 @@ riverctl map normal $mod e spawn nemo
 riverctl map normal $mod d spawn "bemenu-run -p 'run' -l 10 --fn 'Roman[15]'"
 riverctl map normal ${mod}+Alt p spawn swaylock
 riverctl map normal Control+Shift 1 spawn 'wayshot -g'
-riverctl map normal Control+Shift 2 spawn 'wayshot'
+riverctl map normal Control+Shift 2 spawn "wayshot && notify-send 'capture whole screen'"
 riverctl map normal $mod Return spawn foot 
 riverctl map normal ${mod}+Shift e exit
 

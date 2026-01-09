@@ -24,6 +24,9 @@ PS1='[\u@\h \W]\$ '
 # unset __conda_setup
 # <<< conda initialize <<<
 
+alias update="sudo pacman -Syu"
+alias gaa="git add --all"
+alias gcmsg="git commit -m"
 alias search="pacman -Ss"
 alias ins="sudo pacman -S"
 alias rem="sudo pacman -R"

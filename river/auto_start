@@ -3,10 +3,12 @@ spawn="riverctl spawn"
 $spawn "$HOME/.config/river/status" &
 $spawn "$HOME/.config/river/bar" &
 
+
 way-displays > /tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1 &
-mako > "/tmp/mako.${XDG_VTNR}.${USER}.log" 2>&1 &
 swww-daemon &
 swww img "~/.local/share/background/4.png" 
 pgrep 'clash-verge' || $spawn "clash-verge" &
 pgrep 'way-displays' || $spawn "way-displays" &
+pgrep 'mako' || $spawn "mako" &
 pgrep 'fcitx5' || $spawn "fcitx5" &
+mako > "/tmp/mako.${XDG_VTNR}.${USER}.log" 2>&1 &
