@@ -158,7 +158,7 @@ binds {
     MOD+SHIFT+EQUAL                     { set-window-height "+10%"; }
 
     // ─── Modes ───
-    MOD+T                               { toggle-window-floating; }
+    MOD+SPACE                           { toggle-window-floating; }
     MOD+SHIFT+F                         { fullscreen-window; }
     MOD+F                               {maximize-window-to-edges; }
     MOD+W                               { toggle-column-tabbed-display; }
