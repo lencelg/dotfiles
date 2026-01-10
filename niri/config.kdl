@@ -186,6 +186,8 @@ binds {
     spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
     spawn-sh-at-startup "swww img ~/.local/share/background/4.png" // Set wallpaper
     spawn-sh-at-startup "waybar" // Launch waybar
+    //show the keys 
+    // spawn-sh-at-startup "wshowkeys -a bottom -F 'Sans Bold 25' -s '#B5B520ff' -f  '#ecd29cff' -b '#201B1488' -l 60 -t 500" 
     spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &"
 
     prefer-no-csd // Disable program decorations
