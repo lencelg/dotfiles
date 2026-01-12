@@ -277,7 +277,6 @@ binds {
 
     window-rule {
         match app-id="qutebrowser"
-        match app-id="brave"
         open-on-workspace "brow"
     }
     window-rule {
