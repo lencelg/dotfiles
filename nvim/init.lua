@@ -192,35 +192,6 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
         })
     end,
 })
-
--- Treesitter 配置(不起作用)
--- vim.api.nvim_create_autocmd("BufReadPre", {
---   once = true,
---   callback = function()
---     ---@diagnostic disable-next-line: missing-fields
---     require('nvim-treesitter.configs').setup({
---       ensure_installed = { 'lua', 'python', 'json', 'vim', 'markdown', 'c' }, -- 安装的语言
---       highlight = { enable = true },                                          -- 语法高亮
---       indent = { enable = true },                                             -- 缩进
---     })
---   end,
--- })
-
--- blink.cmp 补全配置以及触发加载(不起作用)
--- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
---   once = true,
---   callback = function()
---     print("InsertEnter triggered at:", vim.loop.hrtime() / 1e6, "ms")
---     print("vim_did_enter:", vim.v.vim_did_enter)
---     require('blink.cmp').setup({
---       keymap = { preset = 'super-tab' },                   -- 超级 Tab 快捷键
---       sources = {
---         default = { 'lsp', 'path', 'snippets', 'buffer' }, -- 补全来源
---       },
---     })
---   end,
--- })
-
 ----------------------
 -- LSP 配置 --
 ----------------------
@@ -304,17 +275,6 @@ end, { desc = 'prev diagnostic' })
 vim.keymap.set('n', ']d', function()
     vim.diagnostic.jump({ wrap = true, count = 1 })
 end, { desc = 'next diagnostic' })
-
-----------------------
--- 自动命令 --
-----------------------
--- -- 保存前自动格式化
--- vim.api.nvim_create_autocmd('BufWritePre', {
---     callback = function()
---         vim.lsp.buf.format()
---     end,
---     pattern = '*',
--- })
 
 -- 复制高亮提示
 vim.api.nvim_create_autocmd('TextYankPost', {
