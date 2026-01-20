@@ -28,8 +28,6 @@ personal dotfiles(used for two monitors)
 * bash(with bash-it)
 ## notifactio
 * mako
-## music
-* go-musicfox
 ## resource-manager
 * btop
 ## screencast key 
