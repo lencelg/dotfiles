@@ -1,7 +1,29 @@
-#!/bin/env sh
+#!/bin/bash
+
+RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp}"
+PID_FILE="$RUNTIME_DIR/status.pid"
+FIFO="$RUNTIME_DIR/kwm_status.fifo"
+
+# 清理并创建 FIFO
+rm -f "$FIFO"
+mkfifo "$FIFO" 2>/dev/null || { echo "无法创建 FIFO: $FIFO"; exit 1; }
+
+# 记录当前进程 PID
+echo $$ > "$PID_FILE"
+trap 'rm -f "$FIFO" "$PID_FILE"' EXIT
+
+cpu="N/A"
+memory="N/A"
+disk="N/A"
+datetime="N/A"
+vol="N/A"
+sunrise="N/A"
+solarnoon="N/A"
+sunset="N/A"
+solarmidnight="N/A"
 
 cpu() {
-	cpu="$(grep -o "^[^ ]*" /proc/loadavg)"
+	cpu="$(grep -o "^[^ ]*" /proc/loadavg 2>/dev/null || echo '?')"
 }
 
 memory() {
@@ -9,61 +31,110 @@ memory() {
 }
 
 disk() {
-    disk="$(df -h | grep -E "/\$" | grep -o "[0-9]\+%")"
+    disk="$(df -h / 2>/dev/null | awk 'NR==2 {print $5}' || echo '?')"
 }
 
 datetime() {
-    datetime="$(date +"%A %Y-%m-%d %H:%M")"
-}
-
-bat() {
-    bat="$(upower -b | grep -E "percentage" | grep -o  "[0-9]\+%")"
+    datetime="$(date +'%A %Y-%m-%d %H:%M' 2>/dev/null || echo '???: ??')"
 }
 
 vol() {
-	vol="$([ "$(pamixer --get-mute)" = "false" ] && printf "%s%%" "$(pamixer --get-volume)" || printf '-')"
+    if command -v pamixer >/dev/null 2>&1; then
+        if pamixer --get-mute 2>/dev/null | grep -q "true"; then
+            vol="MUT"
+        else
+            vol="$(pamixer --get-volume 2>/dev/null || echo '?')%"
+        fi
+    else
+        vol="N/A"
+    fi
+}
+
+fetch_weather_data() {
+    local cache_file="$RUNTIME_DIR/sun_cache.json"
+    local cache_age=36000  
+    
+    if [ -f "$cache_file" ] && [ $(($(date +%s) - $(stat -c %Y "$cache_file"))) -lt $cache_age ]; then
+        cat "$cache_file"
+        return
+    fi
+    
+    curl -s --max-time 5 'https://api.met.no/weatherapi/sunrise/3.0/sun?lat=22.2128&lon=110.5434&offset=+08:00' > "$cache_file" 2>/dev/null
+    cat "$cache_file"
 }
 
 sunrise() {
-    sunrise="$(curl -s 'https://api.met.no/weatherapi/sunrise/3.0/sun?lat=22.2769&lon=113.5678&offset=+08:00' | grep -oP '"sunrise":{"time":"[^"]*T\K\d{2}:\d{2}' )"
+    sunrise="$(fetch_weather_data | grep -oP '"sunrise":{"time":"[^"]*T\K\d{2}:\d{2}' | head -1 || echo '??:??')"
+}
+
+solarnoon() {
+    solarnoon="$(fetch_weather_data | grep -oP '"solarnoon":{"time":"[^"]*T\K\d{2}:\d{2}' | head -1 || echo '??:??')"
 }
 
 sunset() {
-    sunset="$(curl -s 'https://api.met.no/weatherapi/sunrise/3.0/sun?lat=22.2769&lon=113.5678&offset=+08:00' | grep -oP '"sunset":{"time":"[^"]*T\K\d{2}:\d{2}' )"
+    sunset="$(fetch_weather_data | grep -oP '"sunset":{"time":"[^"]*T\K\d{2}:\d{2}' | head -1 || echo '??:??')"
 }
+
 solarmidnight() {
-    solarmidnight="$(curl -s 'https://api.met.no/weatherapi/sunrise/3.0/sun?lat=22.2769&lon=113.5678&offset=+08:00' | grep -oP '"solarmidnight":{"time":"[^"]*T\K\d{2}:\d{2}' )"
-}
-solarnoon() {
-    solarnoon="$(curl -s 'https://api.met.no/weatherapi/sunrise/3.0/sun?lat=22.2769&lon=113.5678&offset=+08:00' | grep -oP '"solarnoon":{"time":"[^"]*T\K\d{2}:\d{2}' )"
+    solarmidnight="$(fetch_weather_data | grep -oP '"solarmidnight":{"time":"[^"]*T\K\d{2}:\d{2}' | head -1 || echo '??:??')"
 }
 
 display() {
-	echo "all status 🌅 $sunrise ☀️ $solarnoon 🌇 $sunset ⏳ $solarmidnight | 💾 $memory | 💻 $cpu | 💽 $disk | 🔋 $bat | 🔉 $vol | $datetime" >"$FIFO"
+    local status_line=""
+    
+    [ "$sunrise" != "N/A" ] && status_line+="🌅$sunrise"
+    [ "$solarnoon" != "N/A" ] && status_line+="☀️$solarnoon"
+    [ "$sunset" != "N/A" ] && status_line+="🌇$sunset"
+    [ "$solarmidnight" != "N/A" ] && status_line+="⏳$solarmidnight|"
+    
+    [ "$memory" != "N/A" ] && status_line+="💾$memory|"
+    [ "$cpu" != "N/A" ] && status_line+="💻$cpu|"
+    [ "$disk" != "N/A" ] && status_line+="💽$disk|"
+    [ "$vol" != "N/A" ] && status_line+="🔉$vol|"
+    
+    status_line+="$datetime"
+    
+    echo "$status_line" > "$FIFO" 2>/dev/null
 }
 
+sunrise
+solarnoon
+sunset
+solarmidnight
+memory
+cpu
+disk
+vol
+datetime
+display
 
-printf "%s" "$$" > "$XDG_RUNTIME_DIR/status_pid"
-FIFO="$XDG_RUNTIME_DIR/sandbar"
-[ -e "$FIFO" ] || mkfifo "$FIFO"
-sec=0
-
+counter=0
 while true; do
-	sleep 1 &
-	wait && {
-		[ $((sec % 36000)) -eq 0 ] && sunrise
-		[ $((sec % 36000)) -eq 0 ] && solarnoon
-		[ $((sec % 36000)) -eq 0 ] && sunset
-		[ $((sec % 36000)) -eq 0 ] && solarmidnight
-		[ $((sec % 15)) -eq 0 ] && memory
-		[ $((sec % 15)) -eq 0 ] && cpu
-		[ $((sec % 15)) -eq 0 ] && disk
-		[ $((sec % 60)) -eq 0 ] && bat
-		[ $((sec % 5)) -eq 0 ] && vol
-		[ $((sec % 5)) -eq 0 ] && datetime
-
-		[ $((sec % 5)) -eq 0 ] && display
-
-		sec=$((sec + 1))
-	}
+    sleep 1
+    
+    if [ $((counter % 5)) -eq 0 ]; then
+        datetime
+        vol
+    fi
+    
+    if [ $((counter % 15)) -eq 0 ]; then
+        memory
+        cpu
+        disk
+    fi
+    
+    if [ $((counter % 36000)) -eq 0 ]; then
+        sunrise
+        solarnoon
+        sunset
+        solarmidnight
+    fi
+    
+    if [ $((counter % 5)) -eq 0 ]; then
+        display
+    fi
+    
+    counter=$((counter + 1))
+    
+    [ $counter -ge 86400 ] && counter=0
 done

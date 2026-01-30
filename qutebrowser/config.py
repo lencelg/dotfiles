@@ -27,7 +27,7 @@ def read_xresources(prefix):
 
 c.tabs.title.format = "{audio}{current_title}"
 c.fonts.web.size.default = 15
-c.zoom.default = 110
+c.zoom.default = 125
 
 c.url.searchengines = {
 # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
@@ -74,11 +74,6 @@ config.bind('gK', 'tab-move -')
 config.bind('ts', 'cmd-set-text -s :tab-select')
 
 # dark mode setup
-c.colors.webpage.darkmode.enabled = True 
-c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
-c.colors.webpage.darkmode.policy.images = 'never'
-config.set('colors.webpage.darkmode.enabled', False, 'file://*')
-
 c.aliases['darkmode'] = 'config-cycle colors.webpage.darkmode.enabled'
 # styles, cosmetics
 # c.content.user_stylesheets = ["~/.config/qutebrowser/styles/youtube-tweaks.css"]
@@ -89,7 +84,7 @@ c.tabs.width = '7%'
 
 # fonts
 c.fonts.default_family = "serif"
-c.fonts.default_size = '12pt'
+c.fonts.default_size = '15pt'
 # c.fonts.web.family.fixed = 'monospace'
 # c.fonts.web.family.sans_serif = 'monospace'
 # c.fonts.web.family.serif = 'monospace'
@@ -135,26 +130,26 @@ c.content.blocking.adblock.lists = [
         "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
         "https://easylist.to/easylist/easyprivacy.txt",
         "https://secure.fanboy.co.nz/fanboy-annoyance.txt",]
-cmd_trans_script = "spawn --userscript ~/.config/qutebrowser/greasemonkey/translate"
-config.bind("tr", cmd_trans_script)
+# cmd_trans_script = "spawn --userscript ~/.config/qutebrowser/greasemonkey/translate"
+# config.bind("tr", cmd_trans_script)
+#
+# c.bindings.commands["caret"] = {
+#     "tr": cmd_trans_script
+# }
 
-c.bindings.commands["caret"] = {
-    "tr": cmd_trans_script
-}
 
-
-enabled_scripts = [
-        "https://greasyfork.org/zh-CN/scripts/420352-csdn-focus",
-        "https://greasyfork.org/zh-CN/scripts/396171-%E7%9F%A5%E4%B9%8E%E5%85%8D%E7%99%BB%E5%BD%95",
-]
-
-# 禁用的插件 (暂时不想用，但不想删文件，下次启用不用重新下载)
-disabled_scripts = [
-]
-
-# 注入环境变量
-os.environ["QB_GM_LIST"] = " ".join(enabled_scripts)
-os.environ["QB_GM_DISABLED_LIST"] = " ".join(disabled_scripts)
-
-# 绑定快捷键 gr 刷新当前配置并调用同步脚本
-config.bind("gr", "config-source ;; spawn --userscript ~/.config/qutebrowser/greasemonkey/plugins_mg")
+# enabled_scripts = [
+#         "https://greasyfork.org/zh-CN/scripts/420352-csdn-focus",
+#         "https://greasyfork.org/zh-CN/scripts/396171-%E7%9F%A5%E4%B9%8E%E5%85%8D%E7%99%BB%E5%BD%95",
+# ]
+#
+# # 禁用的插件 (暂时不想用，但不想删文件，下次启用不用重新下载)
+# disabled_scripts = [
+# ]
+#
+# # 注入环境变量
+# os.environ["QB_GM_LIST"] = " ".join(enabled_scripts)
+# os.environ["QB_GM_DISABLED_LIST"] = " ".join(disabled_scripts)
+#
+# # 绑定快捷键 gr 刷新当前配置并调用同步脚本
+# config.bind("gr", "config-source ;; spawn --userscript ~/.config/qutebrowser/greasemonkey/plugins_mg")

@@ -31,7 +31,7 @@
       "(.*) - Outlook": "$1",
       "(.*) Microsoft Teams": "$1"
     },
-    "separate-outputs": true
+    "separate-outputs": true,
   },
 
   // Empty
@@ -82,7 +82,7 @@
 	"format": "<span style=\"italic\">{}</span>"
 	},
   "clock": {
-  "format": "  {:%Y-%m-%d    󰅐  %H:%M}",
+    "format": "  {:%Y-%m-%d    󰅐  %H:%M}",
 	},
 	"cpu": {
 	"format": "󰻠  {usage}%"

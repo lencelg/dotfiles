@@ -27,25 +27,11 @@ input {
 // You can run `niri msg outputs` to get the correct name for your displays.
 // You will have to remove "/-" and edit it before it takes effect.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-
-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000" {
-    focus-at-startup
-    mode "1920x1080@239.999" // Set resolution and refresh rate
-    scale 1 // No scaling (use 2 for HiDPI)
-}
-output "AU Optronics B156HAN15.H  Unknown" {
-    mode "1920x1080@144.036" // Set resolution and refresh rate
-    scale 1 // No scaling 
-}
-//
 workspace "work" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 workspace "brow" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 workspace "chat" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 
 // ────────────── Keybindings ──────────────
@@ -55,7 +41,8 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty"; }
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
+    // MOD+D                               hotkey-overlay-title="Open App Launcher: bemenu" { spawn-sh "bemenu-run -l 5 --fn 'monospace[17]' -R 15"; }
     MOD+D                               hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
     MOD+B                               hotkey-overlay-title="Open Browser: qutebrowser" { spawn-sh "qutebrowser"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
@@ -184,7 +171,7 @@ binds {
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
     spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    spawn-sh-at-startup "swww img ~/.local/share/background/4.png" // Set wallpaper
+    spawn-sh-at-startup "swww img ~/picture/NOL2IF0.png" // Set wallpaper
     spawn-sh-at-startup "waybar" // Launch waybar
     //show the keys 
     // spawn-sh-at-startup "wshowkeys -a bottom -F 'Sans Bold 25' -s '#B5B520ff' -f  '#ecd29cff' -b '#201B1488' -l 60 -t 500" 

@@ -1,41 +1,4 @@
-#
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lancetce/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/lancetce/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/lancetce/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/lancetce/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-alias update="sudo pacman -Syu"
-alias gaa="git add --all"
-alias gcmsg="git commit -m"
-alias search="pacman -Ss"
-alias ins="sudo pacman -S"
-alias rem="sudo pacman -R"
-alias fm="yazi"
-alias query="pacman -Qs"
-alias mingw="x86_64-w64-mingw32-gcc"
-alias con="cd ~/.config"
-unset GTK_IM_MODULE
-unset QT_IM_MODULE
+# shellcheck shell=bash
 # shellcheck disable=SC2034
 
 # If not running interactively, don't do anything
@@ -44,13 +7,16 @@ case $- in
 	*) return ;;
 esac
 
+eval "$(fzf --bash)"
+
 # Path to the bash it configuration
-BASH_IT="/home/lancetce/.bash_it"
+BASH_IT="/home/birdring/.bash_it"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location "$BASH_IT"/themes/
-export BASH_IT_THEME='nwinkler'
+export BASH_IT_THEME="bobby"
+
 
 # Some themes can show whether `sudo` has a current token or not.
 # Set `$THEME_CHECK_SUDO` to `true` to check every prompt:
@@ -111,3 +77,13 @@ TODO="t"
 
 # Load Bash It
 source "${BASH_IT?}/bash_it.sh"
+alias search="pacman -Ss"
+alias ins="sudo pacman -S"
+alias rem="sudo pacman -R"
+alias fm="yazi"
+alias query="pacman -Qs"
+alias mingw="x86_64-w64-mingw32-gcc"
+alias con="cd ~/.config"
+alias update="sudo pacman -Syu"
+alias inf="pacman -Si"
+

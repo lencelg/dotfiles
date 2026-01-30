@@ -17,16 +17,19 @@ vim.opt.incsearch = true                        -- 增量搜索
 vim.opt.foldmethod = 'expr'                     -- 折叠方式使用表达式
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- 使用 Treesitter 表达式折叠
 vim.opt.foldlevel = 99                          -- 打开文件时默认不折叠
-vim.opt.inccommand = 'split'                     -- 替换分栏
-vim.g.mapleader= " "
+vim.opt.inccommand = 'split'                    -- 替换分栏
+vim.g.mapleader = " "
 
 ----------------------
 -- 插件管理（vim.pack） --
 ----------------------
 vim.pack.add({
-    { src = 'https://github.com/armannikoyan/rusty' },            -- 主题
+    { src = 'https://github.com/armannikoyan/rusty' },            -- rusty
     { src = 'https://github.com/antonk52/lake.nvim' },            -- 主题
     { src = 'https://github.com/blazkowolf/gruber-darker.nvim' }, -- 主题
+    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' }, -- 主题
+    { src = 'https://github.com/folke/tokyonight.nvim' },         -- 主题
+    { src = 'https://github.com/catppuccin/nvim' },               -- 主题
     { src = 'https://github.com/projekt0n/github-nvim-theme' },   -- 主题
     { src = 'https://github.com/mason-org/mason.nvim' },          -- LSP 安装管理器
     { src = 'https://github.com/neovim/nvim-lspconfig' },         -- LSP 配置
@@ -35,6 +38,7 @@ vim.pack.add({
     { src = 'https://github.com/nvim-mini/mini.pairs' },          -- 括号补全
     { src = 'https://github.com/nvim-mini/mini.icons' },          -- 图标
     { src = 'https://github.com/nvim-mini/mini.tabline' },        -- tabline
+    { src = 'https://github.com/nvim-mini/mini.jump' },           -- mini.jump
     { src = 'https://github.com/mrcjkb/rustaceanvim' },           -- rust
 })
 
@@ -61,7 +65,7 @@ vim.pack.add({
 
 -- blink.cmp 安装补全配置以及触发加载
 vim.pack.add({
-    { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') },
+    { src = 'https://github.com/saghen/blink.cmp' },
 }, {
     load = function(plug_data)
         -- 不执行任何操作，完全不加载插件
@@ -74,7 +78,6 @@ vim.pack.add({
                 -- 加载 plugin 文件
                 require('blink.cmp').setup({
                     keymap = { preset = 'super-tab' },
-                    default = { 'lsp', 'path', 'snippets', 'buffer' },
                     sources = {
                     },
                 })
@@ -122,6 +125,8 @@ require("lualine").setup({
     options = { theme = 'gruvbox' },
 })
 
+
+require('mini.jump').setup({})
 ----------------------
 -- 插件配置 --
 ----------------------
@@ -136,6 +141,7 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
         require('mini.pairs').setup()
         require('mini.icons').setup()
         require('mini.tabline').setup()
+
 
         -- mini.files 文件浏览器配置
         require('mini.files').setup({
@@ -210,12 +216,12 @@ vim.lsp.config('lua_ls', {
         },
     },
 })
-vim.lsp.config('bash-language-server',{})
-vim.lsp.config('harper-ls',{})
-vim.lsp.config('pyright',{})
+vim.lsp.config('bash-language-server', {})
+vim.lsp.config('harper-ls', {})
+vim.lsp.config('pyright', {})
 
 -- 启用 LSP
-vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd', 'bash-language-server', 'harper-ls'})
+vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd', 'bash-language-server', 'harper-ls' })
 -- LSP 诊断显示
 vim.diagnostic.config({ virtual_text = true }) -- 行内文本提示
 -- vim.diagnostic.config({ virtual_lines = true }) -- 虚拟行提示（可选）
@@ -284,3 +290,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank({ timeout = 500 })
     end,
 })
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]]

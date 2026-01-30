@@ -3,19 +3,17 @@
 }
 
 window#waybar {
-    background-color: rgba(12, 12 ,12, 0.4);
     font-size: 15px;
     border-radius: 0px;
     margin: 0px;
     padding: 0;
+    background-color: #321414;
 }
 
 
 /* Right-most: Clock */
 #clock {
     font-size: 15px;
-    background-color: rgba(12, 12 ,12, 0.4);
-    color: #c0c0c0;
     border-radius: 0px;
     padding: 0px 8px;
 }
@@ -24,14 +22,11 @@ window#waybar {
 #window {
     font-size: 15px;
     font-weight: 800;
-    color: #e0e0e0;
     border-radius: 0px;
     padding: 4px 12px;
-    background: rgba(12, 12, 12, 0.4); 
 }
 
 #window.empty {
-    background: rgba(12, 12, 12, 0.4);
 }
 
 /* Workspace container */
@@ -80,38 +75,29 @@ tooltip {
 /* All system info modules */
 #pulseaudio{
     font-size: 16px;
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #network{
     font-size: 16px;
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #bluetooth{
     font-size: 16px;
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #battery {
     font-size: 16px;
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #cpu{
     font-size: 16px;
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #memory{
     font-size: 16px;
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #disk{
     font-size: 16px;
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #temperature{
     font-size: 16px;
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #tray{
-    background-color: rgba(12, 12 ,12, 0.4);
 }
 #backlight,
 #custom-updates,
