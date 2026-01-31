@@ -14,4 +14,3 @@ cp ~/.bashrc ~/dotfiles/
 cd ~/dotfiles
 git add --all
 git commit -m "update"
-git --set-upstream origin old_computer
