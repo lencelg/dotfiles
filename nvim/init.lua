@@ -113,6 +113,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     callback = function()
         vim.cmd("colorscheme github_dark_default")
+        vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'none' }) -- Non-current windows
+        vim.api.nvim_set_hl(0, 'LineNr', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
+ 
     end,
 })
 
@@ -136,7 +142,7 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
         -- Mason
         require('mason').setup()
         -- mini.pick 配置
-        require('mini.pick').setup()
+        require('mini.pick').setup({})
         -- mini.pari 配置
         require('mini.pairs').setup()
         require('mini.icons').setup()
@@ -258,7 +264,7 @@ vim.keymap.set('n', '<leader>e', ':lua MiniFiles.open()<CR>', { desc = 'open fil
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>', { desc = 'open file picker' })
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>', { desc = 'open help picker' })
 vim.keymap.set('n', '<leader>g', ':Pick grep live<CR>', { desc = 'open grep live picker' })
-vim.keymap.set('n', '<leader>b', ':Pick buffer<CR>', { desc = 'open buffer picker' })
+vim.keymap.set('n', '<leader>b', ':lua MiniPick.builtin.buffers()<CR>', { desc = 'open buffer picker' })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = 'diagnostic messages' })
 -- LSP 快捷键
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
@@ -290,9 +296,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank({ timeout = 500 })
     end,
 })
-vim.cmd [[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]]
+

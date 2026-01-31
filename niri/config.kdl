@@ -43,7 +43,7 @@ binds {
     // ─── Applications ───
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
     // MOD+D                               hotkey-overlay-title="Open App Launcher: bemenu" { spawn-sh "bemenu-run -l 5 --fn 'monospace[17]' -R 15"; }
-    MOD+D                               hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
+    MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "rofi -show drun"; }
     MOD+B                               hotkey-overlay-title="Open Browser: qutebrowser" { spawn-sh "qutebrowser"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     
