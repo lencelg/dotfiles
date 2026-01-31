@@ -1,3 +1,4 @@
+
 #!/bin/bash
 dots=("qutebrowser" "foot" "i3status-rust" "niri" "river" "waybar" "wayshot" "yazi" "i3bar-river" "kitty" "mako" "nvim" "way-displays" "wlogout")
 
@@ -13,4 +14,3 @@ cp ~/.bashrc ~/dotfiles/
 cd ~/dotfiles
 git add --all
 git commit -m "update"
-git push origin main
