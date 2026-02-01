@@ -41,7 +41,7 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: foot" { spawn-sh "foot"; }
     // MOD+D                               hotkey-overlay-title="Open App Launcher: bemenu" { spawn-sh "bemenu-run -l 5 --fn 'monospace[17]' -R 15"; }
     MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "rofi -show drun"; }
     MOD+B                               hotkey-overlay-title="Open Browser: qutebrowser" { spawn-sh "qutebrowser"; }
@@ -151,7 +151,8 @@ binds {
     MOD+W                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
-    CTRL+SHIFT+1                        { screenshot; }
+    CTRL+SHIFT+1                        { spawn-sh "flameshot gui"; }
+    F1                                  { spawn-sh "flameshot gui"; }
     CTRL+SHIFT+2                        { screenshot-screen; }
     CTRL+SHIFT+3                        { screenshot-window; }
 
