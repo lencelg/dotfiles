@@ -58,7 +58,7 @@ export BASH_IT_THEME='nwinkler'
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
-#BASH_IT_REMOTE='bash-it'
+BASH_IT_REMOTE='bash-it'
 
 # (Advanced): Change this to the name of the main development branch if
 # you renamed it or if it was changed for some reason
