@@ -25,14 +25,14 @@ vim.g.mapleader = " "
 ----------------------
 vim.pack.add({
     { src = 'https://github.com/armannikoyan/rusty' },            -- rusty
-    { src = 'https://github.com/antonk52/lake.nvim' },            -- 主题
-    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' }, -- 主题
-    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' }, -- 主题
-    { src = 'https://github.com/folke/tokyonight.nvim' },         -- 主题
-    { src = 'https://github.com/catppuccin/nvim' },               -- 主题
-    { src = 'https://github.com/projekt0n/github-nvim-theme' },   -- 主题
+    { src = 'https://github.com/antonk52/lake.nvim' },            -- lake theme
+    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' }, -- gruber-darker theme 
+    { src = 'https://github.com/folke/tokyonight.nvim' },         -- tokyaonigh
+    { src = 'https://github.com/catppuccin/nvim' },               -- catppuccin
+    { src = 'https://github.com/projekt0n/github-nvim-theme' },   -- github-theme
     { src = 'https://github.com/mason-org/mason.nvim' },          -- LSP 安装管理器
     { src = 'https://github.com/neovim/nvim-lspconfig' },         -- LSP 配置
+    { src = 'https://github.com/navarasu/onedark.nvim' },         -- onedark
     { src = 'https://github.com/nvim-mini/mini.pick' },           -- 文件/缓冲区选择器
     { src = 'https://github.com/nvim-mini/mini.files' },          -- 文件浏览器
     { src = 'https://github.com/nvim-mini/mini.pairs' },          -- 括号补全
@@ -112,13 +112,12 @@ require('render-markdown').setup({
 vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     callback = function()
-        vim.cmd("colorscheme github_dark_default")
+        vim.cmd("colorscheme catppuccin-mocha")
         vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
         vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
         vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'none' }) -- Non-current windows
         vim.api.nvim_set_hl(0, 'LineNr', { bg = 'none' })
         vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
- 
     end,
 })
 
@@ -128,7 +127,7 @@ vim.pack.add({
 })
 
 require("lualine").setup({
-    options = { theme = 'gruvbox' },
+    options = { theme = 'powerline_dark' },
 })
 
 
@@ -296,4 +295,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank({ timeout = 500 })
     end,
 })
-

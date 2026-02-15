@@ -86,4 +86,6 @@ alias mingw="x86_64-w64-mingw32-gcc"
 alias con="cd ~/.config"
 alias update="sudo pacman -Syu"
 alias inf="pacman -Si"
-
+alias note="cd ~/code/other/note/"
+alias work="cd ~/code/"
+alias zed="zeditor"

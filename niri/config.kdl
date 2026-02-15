@@ -10,7 +10,7 @@ input {
             layout "us" // Use the German keyboard layout
         }
         repeat-delay 300
-        repeat-rate 25
+        repeat-rate 50
         numlock // Enable numlock on startup
     }
 
@@ -151,8 +151,7 @@ binds {
     MOD+W                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
-    CTRL+SHIFT+1                        { spawn-sh "flameshot gui"; }
-    F1                                  { spawn-sh "flameshot gui"; }
+    CTRL+SHIFT+1                        { screenshot; }
     CTRL+SHIFT+2                        { screenshot-screen; }
     CTRL+SHIFT+3                        { screenshot-window; }
 

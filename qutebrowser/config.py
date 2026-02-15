@@ -41,6 +41,7 @@ c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'his
 
 
 c.auto_save.session = True # save tabs on quit/restart
+c.scrolling.smooth = True
 # unbind key
 config.unbind('d')
 config.unbind('u')
