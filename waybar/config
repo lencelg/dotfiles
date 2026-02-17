@@ -21,11 +21,11 @@
     ],
 
     "modules-right": [
+        "custom/network_speed",
         "cpu",
         "memory",
         "disk",
         "temperature",
-        "battery",
         "clock",
         "tray",
         "pulseaudio"

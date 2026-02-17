@@ -263,10 +263,6 @@ binds {
     }
 
     window-rule {
-        match app-id="qutebrowser"
-        open-on-workspace "brow"
-    }
-    window-rule {
         match app-id="kitty"
 //        open-maximized-to-edges true
         opacity 0.95
