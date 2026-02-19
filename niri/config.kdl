@@ -47,9 +47,9 @@ binds {
     MOD+B                               hotkey-overlay-title="Open Browser: qutebrowser" { spawn-sh "qutebrowser"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     
-    // Please choose your own file manager
     MOD+E                               hotkey-overlay-title="File Manager: nemo" { spawn-sh "nemo"; }
     MOD+F1                              hotkey-overlay-title="sniaper : flameshot" { spawn-sh "flameshot gui"; } 
+    MOD+SHIFT+P                         hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh"}
 
     // ─── Audio Controls ───
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -171,7 +171,7 @@ binds {
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
     spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    spawn-sh-at-startup "swww img ~/picture/some-girl.jpg" // Set wallpaper
+    spawn-sh-at-startup "$HOME/.config/niri/scripts/change_wallpaper.sh" // Set wallpaper
     spawn-sh-at-startup "waybar" // Launch waybar
     //show the keys 
     // spawn-sh-at-startup "wshowkeys -a bottom -F 'Sans Bold 25' -s '#B5B520ff' -f  '#ecd29cff' -b '#201B1488' -l 60 -t 500" 
