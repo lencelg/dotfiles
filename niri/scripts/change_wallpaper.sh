@@ -14,7 +14,7 @@ unset 'find_args[${#find_args[@]}-1]'
 wallpapers=$(find "$WALLPAPER_DIR" -type f \( "${find_args[@]}" \))
 
 if [ -z "$wallpapers" ]; then
-    echo "error : $WALLPAPER_DIR does not contain wallpaper with specific type"
+    notify-send "error : $WALLPAPER_DIR does not contain wallpaper with specific type"
     exit 1
 fi
 
@@ -31,7 +31,7 @@ else
 fi
 
 if [ -z "$candidates" ]; then
-    echo "warning : only one wallpaper find , can not change"
+    notify-send "only one wallpaper find"
     candidates="$wallpapers"
 fi
 
@@ -42,4 +42,4 @@ echo "$selected" > "$LAST_WALLPAPER_FILE"
 swww img "$selected" \
     --transition-duration 2
 
-echo "the wallpaper has change to ：$selected"
+notify-send "wallpaper ：$selected"
