@@ -155,4 +155,21 @@
         "tooltip": true
     },
 
+    "mpris": {
+        "format": " {artist} - {title}{status_icon}",
+
+        "format-paused": "{artist} - {title} pause",
+
+        "format-stopped": "♪: None ",
+
+        "status-icons": {
+            "playing": "▶",   
+            "paused": "⏸",   
+            "stopped": "⏹"  
+        },
+        "max-length": 60,
+
+        "tooltip-format": "{player} - {status}\n{artist} - {title}\n{album}\n总长度: {length}"
+    },
+
 }
