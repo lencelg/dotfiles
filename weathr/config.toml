@@ -1,0 +1,26 @@
+# Hide the HUD (Heads Up Display) with weather details
+hide_hud = false
+
+# Run silently without startup messages (errors still shown)
+silent = false
+
+[location]
+# Location coordinates (overridden if auto = true)
+latitude = 22.2769
+longitude = 113.5678
+
+# Auto-detect location via IP (defaults to true if config missing)
+auto = false
+
+# Hide the location name in the UI
+hide = false
+
+[units]
+# Temperature unit: "celsius" or "fahrenheit"
+temperature = "celsius"
+
+# Wind speed unit: "kmh", "ms", "mph", or "kn"
+wind_speed = "kmh"
+
+# Precipitation unit: "mm" or "inch"
+precipitation = "mm"
