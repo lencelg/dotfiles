@@ -6,6 +6,8 @@ case $- in
 	*i*) ;;
 	*) return ;;
 esac
+export HISTSIZE=2000
+export HISTFILESIZE=5000
 
 eval "$(fzf --bash)"
 
