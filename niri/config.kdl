@@ -27,12 +27,12 @@ input {
 // You can run `niri msg outputs` to get the correct name for your displays.
 // You will have to remove "/-" and edit it before it takes effect.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-workspace "work" {
-}
-workspace "brow" {
-}
-workspace "chat" {
-}
+// workspace "work" {
+// }
+// workspace "brow" {
+// }
+// workspace "chat" {
+// }
 
 // ────────────── Keybindings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
@@ -271,7 +271,7 @@ binds {
     window-rule {
         match app-id="wechat"
         match app-id="qq"
-        open-on-workspace "chat"
+        open-on-workspace "3"
     }
     window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
