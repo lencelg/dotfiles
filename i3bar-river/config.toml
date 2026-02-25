@@ -1,5 +1,0 @@
-font = "JetBrainsMono Nerd Font 12"
-height = 28
-command = "i3status-rs"
-[wm.river]
-max_tag = 9 # Show only the first nine tags

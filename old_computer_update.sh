@@ -1,5 +1,5 @@
 #!/bin/bash
-dots=("mango" "weathr" "kew" "qutebrowser" "foot" "i3status-rust" "niri"  "waybar" "wayshot" "yazi"  "kitty" "mako" "nvim" "way-displays" "wlogout")
+dots=("weathr" "kew" "qutebrowser" "foot" "i3status-rust" "niri"  "waybar" "wayshot" "yazi"  "kitty" "mako" "nvim" "way-displays" "wlogout")
 
 # Loop through the list and print each fruit
 for dot in "${dots[@]}"; do
