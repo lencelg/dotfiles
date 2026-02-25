@@ -2,12 +2,6 @@ personal dotfiles(used for two monitors)
 * niri
 > * waybar
 > * polkit-kde-authentication-agent
-* river
-> * foot
-> * way-displays
-> * wayshot
-> * rivercarro
-> * sandbar
 ## browser
 * qutebrowser
 * brave-browser
@@ -33,8 +27,6 @@ personal dotfiles(used for two monitors)
 ## screencast key 
 * wshowkeys-mao-git
 ## bar
-* sandbar
 * waybar
 ## not necessary 
-* i3bar-river
 * i3status-rs
