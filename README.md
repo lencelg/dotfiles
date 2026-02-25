@@ -1,4 +1,4 @@
-personal dotfiles(used for two monitors)
+personal dotfiles(use for one monitor, only niri configuration)
 * niri
 > * waybar
 > * polkit-kde-authentication-agent
@@ -24,8 +24,6 @@ personal dotfiles(used for two monitors)
 * mako
 ## resource-manager
 * btop
-## screencast key 
-* wshowkeys-mao-git
 ## bar
 * waybar
 ## not necessary 
