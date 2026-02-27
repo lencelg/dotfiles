@@ -12,5 +12,3 @@ cp ~/.bashrc ~/dotfiles/
 
 cd ~/dotfiles
 git add --all
-git commit -m "update"
-git push origin main
