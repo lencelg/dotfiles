@@ -6,8 +6,8 @@ personal dotfiles(used for two monitors)
 * qutebrowser
 * brave-browser
 ## terminal-emulator
-* kitty
 * foot
+* kitty
 * gnome-terminal
 ## launcher
 * wofi
