@@ -37,14 +37,13 @@ output "AU Optronics B156HAN15.H  Unknown" {
     mode "1920x1080@144.036" // Set resolution and refresh rate
     scale 1 // No scaling 
 }
-//
-workspace "work" {
+workspace "w" {
     open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
-workspace "brow" {
+workspace "b" {
     open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
-workspace "chat" {
+workspace "c" {
     open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 
@@ -63,6 +62,8 @@ binds {
     // Please choose your own file manager
     MOD+E                               hotkey-overlay-title="File Manager: nemo" { spawn-sh "nemo"; }
     MOD+F1                              hotkey-overlay-title="sniaper : flameshot" { spawn-sh "flameshot gui"; } 
+    MOD+CTRL+P                          hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh";}
+ 
 
     // ─── Audio Controls ───
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -277,7 +278,7 @@ binds {
 
     window-rule {
         match app-id="qutebrowser"
-        open-on-workspace "brow"
+        open-on-workspace "b"
     }
     window-rule {
         match app-id="kitty"
@@ -288,7 +289,7 @@ binds {
     window-rule {
         match app-id="wechat"
         match app-id="qq"
-        open-on-workspace "chat"
+        open-on-workspace "c"
     }
     window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#

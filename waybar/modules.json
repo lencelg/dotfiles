@@ -31,7 +31,7 @@
       "(.*) - Outlook": "$1",
       "(.*) Microsoft Teams": "$1"
     },
-    "separate-outputs": true
+    "separate-outputs": true,
   },
 
   // Empty
@@ -82,7 +82,7 @@
 	"format": "<span style=\"italic\">{}</span>"
 	},
   "clock": {
-  "format": "  {:%Y-%m-%d    󰅐  %H:%M}",
+    "format": "  {:%Y-%m-%d    󰅐  %H:%M}",
 	},
 	"cpu": {
 	"format": "󰻠  {usage}%"
@@ -96,6 +96,8 @@
   "niri/language": {
     "format": "/ K {short}"
   },
+  
+  // netwrok
 
   // Battery
   "battery": {
@@ -144,26 +146,30 @@
     "icon": false
   },
 
-  // backlight:
-  "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "scroll-step": 1
-  }
+  // network_speed
+  "custom/network_speed": {
+        "format": "{}",
+        "interval": 2,          
+        "exec": "$HOME/.config/waybar/scripts/network_speed.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "mpris": {
+        "format": " {artist} - {title}{status_icon}",
+
+        "format-paused": "{artist} - {title} pause",
+
+        "format-stopped": "♪: None ",
+
+        "status-icons": {
+            "playing": "▶",   
+            "paused": "⏸",   
+            "stopped": "⏹"  
+        },
+        "max-length": 60,
+
+        "tooltip-format": "{player} - {status}\n{artist} - {title}\n{album}\n总长度: {length}"
+    },
+
 }
