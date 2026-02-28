@@ -150,7 +150,7 @@
   "custom/network_speed": {
         "format": "{}",
         "interval": 2,          
-        "exec": "/home/birdring/.config/waybar/scripts/network_speed.sh",
+        "exec": "$HOME/.config/waybar/scripts/network_speed.sh",
         "return-type": "json",
         "tooltip": true
     },
