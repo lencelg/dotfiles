@@ -27,24 +27,11 @@ input {
 // You can run `niri msg outputs` to get the correct name for your displays.
 // You will have to remove "/-" and edit it before it takes effect.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-
-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000" {
-    focus-at-startup
-    mode "1920x1080@239.999" // Set resolution and refresh rate
-    scale 1 // No scaling (use 2 for HiDPI)
-}
-output "AU Optronics B156HAN15.H  Unknown" {
-    mode "1920x1080@144.036" // Set resolution and refresh rate
-    scale 1 // No scaling 
-}
 workspace "w" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 workspace "b" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 workspace "c" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 
 // ────────────── Keybindings ──────────────
@@ -54,16 +41,15 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty"; }
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: foot" { spawn-sh "foot"; }
+    // MOD+D                               hotkey-overlay-title="Open App Launcher: bemenu" { spawn-sh "bemenu-run -l 5 --fn 'monospace[17]' -R 15"; }
     MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "rofi -show drun"; }
     MOD+B                               hotkey-overlay-title="Open Browser: qutebrowser" { spawn-sh "qutebrowser"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     
-    // Please choose your own file manager
     MOD+E                               hotkey-overlay-title="File Manager: nemo" { spawn-sh "nemo"; }
     MOD+F1                              hotkey-overlay-title="sniaper : flameshot" { spawn-sh "flameshot gui"; } 
-    MOD+CTRL+P                          hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh";}
- 
+    MOD+CTRL+P                         hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh";}
 
     // ─── Audio Controls ───
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -87,9 +73,9 @@ binds {
     MOD+UP                              { focus-window-up; }
     MOD+DOWN                            { focus-window-down; }
 
-    MOD+CTRL+LEFT                       { move-column-left; }
+    ALT+H                               { move-column-left; }
     MOD+CTRL+H                          { move-column-left; }
-    MOD+CTRL+RIGHT                      { move-column-right; }
+    ALT+L                               { move-column-right; }
     MOD+CTRL+L                          { move-column-right; }
     MOD+CTRL+UP                         { move-window-up; }
     MOD+CTRL+K                          { move-window-up; }
@@ -114,8 +100,8 @@ binds {
     // ─── Workspace Switching ───
     MOD+J                               cooldown-ms=150 { focus-workspace-down; }
     MOD+K                               cooldown-ms=150 { focus-workspace-up; }
-    MOD+CTRL+WHEELSCROLLDOWN            cooldown-ms=150 { move-column-to-workspace-down; }
-    MOD+CTRL+WHEELSCROLLUP              cooldown-ms=150 { move-column-to-workspace-up; }
+    ALT+J                               cooldown-ms=150 { move-column-to-workspace-down; }
+    ALT+K                               cooldown-ms=150 { move-column-to-workspace-up; }
 
     MOD+WHEELSCROLLRIGHT                { focus-column-right; }
     MOD+WHEELSCROLLLEFT                 { focus-column-left; }
@@ -185,7 +171,7 @@ binds {
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
     spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    spawn-sh-at-startup "swww img ~/.local/share/background/4.png" // Set wallpaper
+    spawn-sh-at-startup "swww img /home/birdring/picture/wallpapers/NOL2IF0.png" // Set wallpaper
     spawn-sh-at-startup "waybar" // Launch waybar
     //show the keys 
     // spawn-sh-at-startup "wshowkeys -a bottom -F 'Sans Bold 25' -s '#B5B520ff' -f  '#ecd29cff' -b '#201B1488' -l 60 -t 500" 
@@ -276,10 +262,6 @@ binds {
         opacity 0.9
     }
 
-    window-rule {
-        match app-id="qutebrowser"
-        open-on-workspace "b"
-    }
     window-rule {
         match app-id="kitty"
 //        open-maximized-to-edges true
