@@ -8,7 +8,6 @@ personal dotfiles(use for one monitor, only niri configuration)
 ## terminal-emulator
 * kitty(zsh)
 * foot(bash)
-* gnome-terminal
 ## launcher
 * wofi
 * bemenu
@@ -19,12 +18,10 @@ personal dotfiles(use for one monitor, only niri configuration)
 * nvim
 ## shell
 * zsh
-* bash(with bash-it)
+* bash(with bash-it, vim mode, .inputrc)
 ## notifactio
 * mako
 ## resource-manager
 * btop
 ## bar
 * waybar
-## not necessary 
-* i3status-rs
