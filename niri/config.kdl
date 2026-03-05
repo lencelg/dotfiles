@@ -49,7 +49,7 @@ binds {
     
     MOD+E                               hotkey-overlay-title="File Manager: nemo" { spawn-sh "nemo"; }
     MOD+F1                              hotkey-overlay-title="sniaper : flameshot" { spawn-sh "flameshot gui"; } 
-    MOD+CTRL+P                          hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh";}
+    MOD+CTRL+P                         hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh";}
 
     // ─── Audio Controls ───
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -73,9 +73,9 @@ binds {
     MOD+UP                              { focus-window-up; }
     MOD+DOWN                            { focus-window-down; }
 
-    MOD+CTRL+LEFT                       { move-column-left; }
+    ALT+H                               { move-column-left; }
     MOD+CTRL+H                          { move-column-left; }
-    MOD+CTRL+RIGHT                      { move-column-right; }
+    ALT+L                               { move-column-right; }
     MOD+CTRL+L                          { move-column-right; }
     MOD+CTRL+UP                         { move-window-up; }
     MOD+CTRL+K                          { move-window-up; }
@@ -100,8 +100,8 @@ binds {
     // ─── Workspace Switching ───
     MOD+J                               cooldown-ms=150 { focus-workspace-down; }
     MOD+K                               cooldown-ms=150 { focus-workspace-up; }
-    MOD+CTRL+WHEELSCROLLDOWN            cooldown-ms=150 { move-column-to-workspace-down; }
-    MOD+CTRL+WHEELSCROLLUP              cooldown-ms=150 { move-column-to-workspace-up; }
+    ALT+J                               cooldown-ms=150 { move-column-to-workspace-down; }
+    ALT+K                               cooldown-ms=150 { move-column-to-workspace-up; }
 
     MOD+WHEELSCROLLRIGHT                { focus-column-right; }
     MOD+WHEELSCROLLLEFT                 { focus-column-left; }
@@ -287,6 +287,9 @@ binds {
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
         XDG_SESSION_TYPE "wayland"
         XDG_CURRENT_DESKTOP "niri"
+        GTK_IM_MODULE "fcitx"
+        QT_IM_MODULE "fcitx"
+        XMODIFIERS "@im=fcitx"
     }
 
     hotkey-overlay {

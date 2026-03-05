@@ -11,8 +11,9 @@ export HISTFILESIZE=5000
 
 eval "$(fzf --bash)"
 
+set -o vi
 # Path to the bash it configuration
-BASH_IT="/home/birdring/.bash_it"
+BASH_IT="$HOME/.bash_it"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.

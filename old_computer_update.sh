@@ -9,6 +9,7 @@ done
 
 cp ~/.zshrc ~/dotfiles/
 cp ~/.bashrc ~/dotfiles/
+cp ~/.inputrc ~/dotfiles/
 
 cd ~/dotfiles
 git add --all
