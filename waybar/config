@@ -28,6 +28,7 @@
         "disk",
         "temperature",
         "clock",
+        "battery",
         "bluetooth",
         "tray",
         "pulseaudio"
