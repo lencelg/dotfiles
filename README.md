@@ -32,3 +32,4 @@ personal dotfiles(used for two monitors)
 * fonts.conf: used for chinese font setup in archlinux, stored at ~/.config/fontconfig/
 * bash-it
 * gh
+* blueman
