@@ -33,3 +33,5 @@ personal dotfiles(used for two monitors)
 * bash-it
 * gh
 * blueman
+* bc: for network_speed.sh in waybar
+* rog-control-center , asusctl

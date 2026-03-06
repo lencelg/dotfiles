@@ -11,6 +11,8 @@ export HISTFILESIZE=5000
 
 eval "$(fzf --bash)"
 
+set -o vi
+
 # Path to the bash it configuration
 BASH_IT="$HOME/.bash_it"
 
