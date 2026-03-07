@@ -82,6 +82,7 @@ c.tabs.padding = {'top': 5, 'bottom': 5, 'left': 9, 'right': 9}
 c.tabs.indicator.width = 0 # no tab indicators
 # c.window.transparent = true # apparently not needed
 c.tabs.width = '7%'
+c.colors.webpage.darkmode.enabled = True
 
 # fonts
 c.fonts.default_family = "serif"
