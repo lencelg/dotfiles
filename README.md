@@ -37,3 +37,4 @@ personal dotfiles(used for two monitors)
 * blueman
 * bc: for network_speed.sh in waybar
 * rog-control-center , asusctl
+* weathr: for weather infomation
