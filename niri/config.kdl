@@ -22,16 +22,23 @@ input {
     focus-follows-mouse // Automatically focus windows under the mouse pointer
     workspace-auto-back-and-forth // Enable workspace back & forth switching
 }
+output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"{
+    mode "1920x1080@239.999"
+    focus-at-startup
+}
 
 // ────────────── Output Configuration ──────────────
 // You can run `niri msg outputs` to get the correct name for your displays.
 // You will have to remove "/-" and edit it before it takes effect.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 workspace "w" {
+    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 workspace "b" {
+    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 workspace "c" {
+    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
 
 // ────────────── Keybindings ──────────────
