@@ -294,6 +294,10 @@ binds {
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
         XDG_SESSION_TYPE "wayland"
         XDG_CURRENT_DESKTOP "niri"
+        GTK_IM_MODULE "fcitx"
+        QT_IM_MODULE "fcitx"
+        XMODIFIERS "@im=fcitx"
+
     }
 
     hotkey-overlay {
