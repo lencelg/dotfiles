@@ -27,6 +27,8 @@ personal dotfiles(used for two monitors)
 * btop
 ## bar
 * waybar
+## locker
+* swaylock-effects
 ## other
 * kwalletrc: used for kde wallet password, store at ~/.config
 * fonts.conf: used for chinese font setup in archlinux, stored at ~/.config/fontconfig/
