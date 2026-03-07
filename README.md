@@ -18,6 +18,9 @@ personal dotfiles(used for two monitors)
 * nemo
 ## editor
 * nvim
+* vim
+* code
+* zed
 ## shell
 * zsh
 * bash(with bash-it)
