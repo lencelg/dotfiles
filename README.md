@@ -1,4 +1,5 @@
-personal dotfiles(used for two monitors)
+personal dotfiles(used for two monitors)<br>
+other part must be read when setting environment in a new system
 * niri
 > * waybar
 > * polkit-kde-authentication-agent
@@ -42,3 +43,4 @@ personal dotfiles(used for two monitors)
 * rog-control-center , asusctl
 * weathr: for weather infomation
 * "keyboard.dispatch": "keyCode" used in vscode for keybing change(caps: swapspace in niri)
+* use relative number in vscode
