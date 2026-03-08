@@ -41,3 +41,4 @@ personal dotfiles(used for two monitors)
 * bc: for network_speed.sh in waybar
 * rog-control-center , asusctl
 * weathr: for weather infomation
+* "keyboard.dispatch": "keyCode" used in vscode for keybing change(caps: swapspace in niri)

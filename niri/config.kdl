@@ -8,6 +8,7 @@ input {
     keyboard {
         xkb {
             layout "us" // Use the German keyboard layout
+            options "caps:swapescape" 
         }
         repeat-delay 300
         repeat-rate 50
