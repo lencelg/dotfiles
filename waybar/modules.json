@@ -82,6 +82,7 @@
 	"format": "<span style=\"italic\">{}</span>"
 	},
   "clock": {
+    "timezone": "Etc/UTC",
     "format": "  {:%Y-%m-%d    󰅐  %H:%M}",
 	},
 	"cpu": {
