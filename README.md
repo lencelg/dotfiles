@@ -1,7 +1,6 @@
 personal dotfiles(used for two monitors)<br>
 other part must be read when setting environment in a new system
 * niri
-> * waybar
 > * polkit-kde-authentication-agent
 ## browser
 * qutebrowser
@@ -9,11 +8,8 @@ other part must be read when setting environment in a new system
 ## terminal-emulator
 * foot
 * kitty
-* gnome-terminal
 ## launcher
-* wofi
 * rofi
-* bemenu
 ## file manager
 * yazi
 * nemo
@@ -25,7 +21,7 @@ other part must be read when setting environment in a new system
 ## shell
 * zsh
 * bash(with bash-it)
-## notifactio
+## notification
 * mako
 ## resource-manager
 * btop
