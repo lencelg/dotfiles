@@ -281,6 +281,10 @@ binds {
         match app-id="qq"
         open-on-workspace "c"
     }
+    window-rule{
+        match app-id="code"
+        opacity 0.97
+    }
     window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
