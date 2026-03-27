@@ -6,7 +6,7 @@ case $- in
 	*i*) ;;
 	*) return ;;
 esac
-export HISTSIZE=2000
+export HISTSIZE=1000
 export HISTFILESIZE=5000
 
 eval "$(fzf --bash)"
@@ -97,3 +97,4 @@ alias note="cd ~/code/note/2026/"
 alias zed="zeditor"
 alias gcmsg="git commit -m"
 alias gss="git status"
+[ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
