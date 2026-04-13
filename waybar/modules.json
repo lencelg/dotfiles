@@ -4,32 +4,22 @@
     "on-click": "activate"
   },
 
-  // Taskbar
+  // Taskbar, no longer needed
   "wlr/taskbar": {
-    "format": "{icon}",
+    //"format": "{icon}",
     "icon-size": 18,
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "ignore-list": ["Alacritty","ghostty"],
-    "app_ids-mapping": {
-      "firefoxdeveloperedition": "firefox-developer-edition"
-    },
-    "rewrite": {
-      "Firefox Web Browser": "Firefox",
-      "Foot Server": "Terminal"
-    }
   },
 
   // niri Window
   "niri/window": {
     "format": "{}",
+    "max-length": 50,
     "rewrite": {
       "(.*) - Brave": "$1",
-      "(.*) - Chromium": "$1",
       "(.*) - Brave Search": "$1",
-      "(.*) - Outlook": "$1",
-      "(.*) Microsoft Teams": "$1"
     },
     "separate-outputs": true,
   },
@@ -39,66 +29,32 @@
     "format": ""
   },
 
-    // Tools
-  "custom/tools": {
-    "format": "",
-    "tooltip-format": "Tools"
-  },
-
-  // Updates Count
-  "custom/updates": {
-      "format": "{} {icon}",
-      "return-type": "json",
-      "format-icons": {
-          "has-updates": "󱍷",
-          "updated": "󰂪"
-      },
-      "exec-if": "which waybar-module-pacman-updates",
-      "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
-  },
-
-  // Keyboard State
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-    }
-  },
-
   // System tray
   "tray": {
     "icon-size": 21,
     "spacing": 13
   },
 
-  //CPU, disk ,memory
+  //disk
   "disk":{
 	"format": "󰉉  {percentage_free}%",
 	},
-  "sway/mode": {
-	"format": "<span style=\"italic\">{}</span>"
-	},
+
+  // date/clock
   "clock": {
     "timezone": "Etc",
-    "format": "  {:%Y-%m-%d    󰅐  %H:%M}",
+    "format": " {:%Y-%m-%d    󰅐  %H:%M}",
 	},
-	"cpu": {
+
+  // cpu
+  "cpu": {
 	"format": "󰻠  {usage}%"
 	},
-	// 
+
+  // memory
 	"memory": {
 	"format": "  {}%"
 	},
-
-
-  "niri/language": {
-    "format": "/ K {short}"
-  },
-  
-  // netwrok
 
   // Battery
   "battery": {
@@ -140,13 +96,6 @@
     "format-no-controller": ""
   },
 
-  // Other
-  "user": {
-    "format": "{user}",
-    "interval": 60,
-    "icon": false
-  },
-
   // network_speed
   "custom/network_speed": {
         "format": "{}",
@@ -156,7 +105,8 @@
         "tooltip": true
     },
 
-    "mpris": {
+  // audio playing info
+   "mpris": {
         "format": " {artist} - {title}{status_icon}",
 
         "format-paused": "{artist} - {title} pause",
@@ -168,9 +118,17 @@
             "paused": "⏸",   
             "stopped": "⏹"  
         },
-        "max-length": 60,
+        "max-length": 25,
 
         "tooltip-format": "{player} - {status}\n{artist} - {title}\n{album}\n总长度: {length}"
+    },
+
+    //weather to get zhuhai weather
+    "custom/weather": {
+        "exec": "curl 'https://wttr.in/zhuhai?format=1'",
+        "interval": 3600,
+        "format": "{}",
+        "tooltip": true
     },
 
 }

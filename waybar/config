@@ -12,13 +12,12 @@
     ],
 
     "modules-left": [
-        "wlr/taskbar",
+        "niri/workspaces",
         "niri/window"
     ],
 
     "modules-center": [
-        "mpris",
-        "niri/workspaces"
+        "mpris"
     ],
 
     "modules-right": [
@@ -28,6 +27,7 @@
         "disk",
         "temperature",
         "clock",
+        "custom/weather",
         "battery",
         "bluetooth",
         "tray",
