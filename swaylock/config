@@ -1,7 +1,6 @@
 ignore-empty-password
 disable-caps-lock-text
-font=Cantarelle Regular
-#font-size=9
+font=WenQuanYi Micro Hei
 
 screenshots
 effect-blur=7x5
