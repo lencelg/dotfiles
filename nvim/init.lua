@@ -12,7 +12,7 @@ vim.opt.signcolumn = 'yes'                      -- 永远显示 sign column（�
 vim.opt.winborder = 'rounded'                   -- 窗口边框样式
 vim.opt.ignorecase = true                       -- 搜索忽略大小写
 vim.opt.smartcase = true                        -- 当包含大写字母时，搜索区分大小写
-vim.opt.hlsearch = true                         -- 搜索匹配不高亮
+vim.opt.hlsearch = true                         -- 搜索匹配高亮
 vim.opt.incsearch = true                        -- 增量搜索
 vim.opt.foldmethod = 'expr'                     -- 折叠方式使用表达式
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- 使用 Treesitter 表达式折叠
@@ -24,24 +24,49 @@ vim.g.mapleader = " "
 -- 插件管理（vim.pack） --
 ----------------------
 vim.pack.add({
-    { src = 'https://github.com/armannikoyan/rusty' },            -- rusty
-    { src = 'https://github.com/antonk52/lake.nvim' },            -- lake theme
-    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' }, -- gruber-darker theme 
-    { src = 'https://github.com/folke/tokyonight.nvim' },         -- tokyaonigh
-    { src = 'https://github.com/catppuccin/nvim' },               -- catppuccin
-    { src = 'https://github.com/projekt0n/github-nvim-theme' },   -- github-theme
-    { src = 'https://github.com/mason-org/mason.nvim' },          -- LSP 安装管理器
-    { src = 'https://github.com/neovim/nvim-lspconfig' },         -- LSP 配置
-    { src = 'https://github.com/navarasu/onedark.nvim' },         -- onedark
-    { src = 'https://github.com/nvim-mini/mini.pick' },           -- 文件/缓冲区选择器
-    { src = 'https://github.com/nvim-mini/mini.files' },          -- 文件浏览器
-    { src = 'https://github.com/nvim-mini/mini.pairs' },          -- 括号补全
-    { src = 'https://github.com/nvim-mini/mini.icons' },          -- 图标
-    { src = 'https://github.com/nvim-mini/mini.tabline' },        -- tabline
-    { src = 'https://github.com/nvim-mini/mini.jump' },           -- mini.jump
-    { src = 'https://github.com/mrcjkb/rustaceanvim' },           -- rust
+    -- { src = 'https://github.com/armannikoyan/rusty' },                    -- rusty
+    { src = 'https://github.com/antonk52/lake.nvim' },                    -- lake theme
+    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' },         -- gruber-darker theme 
+    { src = 'https://github.com/folke/tokyonight.nvim' },                 -- tokyaonigh
+    { src = 'https://github.com/catppuccin/nvim' },                       -- catppuccin
+    { src = 'https://github.com/projekt0n/github-nvim-theme' },           -- github-theme
+    { src = 'https://github.com/mason-org/mason.nvim' },                  -- LSP 安装管理器
+    { src = 'https://github.com/neovim/nvim-lspconfig' },                 -- LSP 配置
+    { src = 'https://github.com/navarasu/onedark.nvim' },                 -- onedark
+    { src = 'https://github.com/nvim-mini/mini.pick' },                   -- 文件/缓冲区选择器
+    { src = 'https://github.com/nvim-mini/mini.files' },                  -- 文件浏览器
+    { src = 'https://github.com/nvim-mini/mini.pairs' },                  -- 括号补全
+    { src = 'https://github.com/nvim-mini/mini.icons' },                  -- 图标
+    { src = 'https://github.com/nvim-lualine/lualine.nvim' },             -- 状态栏
+    { src = 'https://github.com/nvim-mini/mini.tabline' },                -- tabline
+    { src = 'https://github.com/nvim-mini/mini.jump' },                   -- mini.jump
+    { src = 'https://github.com/mrcjkb/rustaceanvim', ft = 'rust'},       --rust
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter'},        -- treesitter
+    { src = 'https://github.com/nvim-mini/mini.nvim'},                    -- if you use the mini.nvim suite
+    {src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim'},
+    -- 'https://github.com/nvim-mini/mini.icons',        -- if you use standalone mini plugins
+    -- 'https://github.com/nvim-tree/nvim-web-devicons', -- if you prefer nvim-web-devicons
 })
 
+
+-- render-markdown 配置
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'Packadd-render-markdown.nvim',
+    callback = function()
+        require('render-markdown').setup({ render_modes = { 'n', 'c', 't' } })
+    end,
+})
+
+-- rustaceanvim 配置
+-- vim.api.nvim_create_autocmd('User', {
+--     pattern = 'Packadd-rustaceanvim',
+--     callback = function()
+--         vim.g.rustaceanvim = {
+--             tools = { enable_clippy = true },
+--             server = { on_attach = function(client, bufnr) end },
+--         }
+--     end,
+-- })
 
 -- Treesitter安装并懒加载
 vim.pack.add({
@@ -86,29 +111,10 @@ vim.pack.add({
     end
 })
 
-vim.pack.add({
-    'https://github.com/nvim-treesitter/nvim-treesitter',
-    'https://github.com/nvim-mini/mini.nvim', -- if you use the mini.nvim suite
-    -- 'https://github.com/nvim-mini/mini.icons',        -- if you use standalone mini plugins
-    -- 'https://github.com/nvim-tree/nvim-web-devicons', -- if you prefer nvim-web-devicons
-    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
-})
-require('render-markdown').setup({
-    render_modes = { 'n', 'c', 't' },
-})
--- -- autopairs
--- vim.pack.add({
---     { src = "https://github.com/windwp/nvim-autopairs" },
--- })
--- require('nvim-autopairs').setup({})
---
--- setup must be called before loading
-
-
 ----------------------
 -- 颜色主题 --
 ----------------------
--- 延迟加载 gruvbox 主题)
+-- 延迟加载主题)
 vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     callback = function()
@@ -122,16 +128,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 -- lualine 启用
-vim.pack.add({
-    { src = 'https://github.com/nvim-lualine/lualine.nvim' }, -- 状态栏
-})
-
 require("lualine").setup({
     options = { theme = 'powerline_dark' },
 })
 
-
-require('mini.jump').setup({})
 ----------------------
 -- 插件配置 --
 ----------------------
@@ -146,6 +146,7 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
         require('mini.pairs').setup()
         require('mini.icons').setup()
         require('mini.tabline').setup()
+        require('mini.jump').setup({})
 
 
         -- mini.files 文件浏览器配置
@@ -231,14 +232,9 @@ vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd', 'bash-language-server', 'harper-
 vim.diagnostic.config({ virtual_text = true }) -- 行内文本提示
 -- vim.diagnostic.config({ virtual_lines = true }) -- 虚拟行提示（可选）
 
-----------------------
--- 快捷键配置 --
-----------------------
--- 格式化
-vim.keymap.set('n', '<leader>lf', function()
-    vim.lsp.buf.format()
-end, { desc = 'format' })
-
+-- ============================================================================
+-- 快捷键配置
+-- ============================================================================
 -- 系统剪贴板
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'copy to system clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>x', '"+d', { desc = 'cut to system clipboard' })
@@ -247,24 +243,43 @@ vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'paste to system clipb
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-z>', '<ESC>u<CR>', { desc = 'undo' })
 -- 窗口切换
 vim.keymap.set('n', '<leader>ww', '<C-w>w', { desc = 'focus windows' })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 -- 行移动
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move line down' })
+vim.keymap.set('n', '<A-j>', ':m .+7<CR>==', { desc = 'Move line down' })
 vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up' })
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 -- 调整窗口大小
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>sh", ":split<CR>", { desc = "Split window horizontally" })
 vim.keymap.set('n', '<C-Up>', ':resize +2<CR>', { desc = 'Increase window height' })
 vim.keymap.set('n', '<C-Down>', ':resize -2<CR>', { desc = 'Decrease window height' })
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { desc = 'Decrease window width' })
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { desc = 'Increase window width' })
--- 文件/插件快捷键
+-- 保存文件
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<ESC>:write<CR>', { desc = 'save file' })
-vim.keymap.set('n', '<leader>e', ':lua MiniFiles.open()<CR>', { desc = 'open file explorer' })
+-- 文件/插件快捷键
+vim.keymap.set('n', '<leader>e', function()
+    if not pcall(require, 'mini.files') then
+        vim.cmd('MiniFiles')
+    else
+        require('mini.files').open()
+    end
+end, { desc = 'open file explorer' })
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>', { desc = 'open file picker' })
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>', { desc = 'open help picker' })
 vim.keymap.set('n', '<leader>g', ':Pick grep live<CR>', { desc = 'open grep live picker' })
-vim.keymap.set('n', '<leader>b', ':lua MiniPick.builtin.buffers()<CR>', { desc = 'open buffer picker' })
+vim.keymap.set('n', '<leader>b', function()
+    if not pcall(require, 'mini.pick') then
+        vim.cmd('PackAdd-mini.nvim')
+    end
+    require('mini.pick').builtin.buffers()
+end, { desc = 'open buffer picker' })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = 'diagnostic messages' })
+
 -- LSP 快捷键
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
@@ -272,26 +287,22 @@ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementa
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Find references' })
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP code action' })
-vim.keymap.set('n', '<leader>m', ":Mason<CR>", { desc = 'open Mason' })
-vim.keymap.set('n', '<leader>n', ":bn<CR>", { desc = 'move to next buffer' })
-vim.keymap.set('n', '<leader>p', ":bp<CR>", { desc = 'move to previous buffer' })
-vim.keymap.set('n', '<leader>x', ":bd<CR>", { desc = 'delete curretn buffer' })
-vim.keymap.set('n', '<leader>t', ":terminal<CR>", { desc = 'open a terminal as a buffer' })
+vim.keymap.set('n', '<leader>m', ':Mason<CR>', { desc = 'open Mason' })
+vim.keymap.set('n', '<leader>n', ':bn<CR>', { desc = 'move to next buffer' })
+vim.keymap.set('n', '<leader>p', ':bp<CR>', { desc = 'move to previous buffer' })
+vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = 'delete current buffer' })
+vim.keymap.set('n', '<leader>t', ':terminal<CR>', { desc = 'open a terminal as a buffer' })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
--- 快速跳转诊断
-vim.keymap.set('n', '[d', function()
-    vim.diagnostic.jump({ wrap = true, count = -1 })
-end, { desc = 'prev diagnostic' })
-vim.keymap.set('n', ']d', function()
-    vim.diagnostic.jump({ wrap = true, count = 1 })
-end, { desc = 'next diagnostic' })
+-- 诊断跳转
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ wrap = true, count = -1 }) end, { desc = 'prev diagnostic' })
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ wrap = true, count = 1 }) end, { desc = 'next diagnostic' })
 
--- 复制高亮提示
+-- ============================================================================
+-- 其他功能（复制高亮）
+-- ============================================================================
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'highlight copying text',
     group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
-    callback = function()
-        vim.highlight.on_yank({ timeout = 500 })
-    end,
+    callback = function() vim.highlight.on_yank({ timeout = 500 }) end,
 })
