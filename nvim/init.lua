@@ -272,7 +272,7 @@ end, { desc = 'open file explorer' })
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>', { desc = 'open file picker' })
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>', { desc = 'open help picker' })
 vim.keymap.set('n', '<leader>g', ':Pick grep live<CR>', { desc = 'open grep live picker' })
-vim.keymap.set('n', '<leader>b', function()
+vim.keymap.set('n', '<leader>bp', function()
     if not pcall(require, 'mini.pick') then
         vim.cmd('PackAdd-mini.nvim')
     end
