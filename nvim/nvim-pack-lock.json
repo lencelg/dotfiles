@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "LuaSnip": {
+      "rev": "a62e1083a3cfe8b6b206e7d3d33a51091df25357",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
+    },
     "auto-session": {
       "rev": "292492ab7af4bd8b9e37e28508bc8ce995722fd5",
       "src": "https://github.com/rmagatti/auto-session"
@@ -20,9 +24,21 @@
       "rev": "3c51fa4104b97ddaccb66a6b34552e3eafd5b645",
       "src": "https://github.com/mluders/comfy-line-numbers.nvim"
     },
+    "efmls-configs-nvim": {
+      "rev": "5dc52088c231f2721f545570fcb541b04802ce6b",
+      "src": "https://github.com/creativenull/efmls-configs-nvim"
+    },
+    "fzf-lua": {
+      "rev": "83f7195972538beee3a40932b38ccd86c8cc0f06",
+      "src": "https://www.github.com/ibhagwan/fzf-lua"
+    },
     "github-nvim-theme": {
       "rev": "c106c9472154d6b2c74b74565616b877ae8ed31d",
       "src": "https://github.com/projekt0n/github-nvim-theme"
+    },
+    "gitsigns.nvim": {
+      "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
+      "src": "https://www.github.com/lewis6991/gitsigns.nvim"
     },
     "gruber-darker.nvim": {
       "rev": "98a2e141981cbd5a194a97eae024bf55af854579",
@@ -131,6 +147,10 @@
     "nvim-nio": {
       "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
       "src": "https://github.com/nvim-neotest/nvim-nio"
+    },
+    "nvim-tree.lua": {
+      "rev": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8",
+      "src": "https://www.github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
       "rev": "4fc09bee78e91bf4ba471cdab4bf9dfa37fde51c",
