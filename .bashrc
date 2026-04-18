@@ -98,7 +98,7 @@ alias note="cd ~/code/note/2026/"
 alias zed="zeditor"
 alias gcmsg="git commit -m"
 alias gss="git status"
-alias book="cd ~/code/note/2026/other/book/"
+alias book="cd ~/code/note/2026/other/"
 alias cat="bat"
 [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 export PATH="$HOME/.cargo/bin:$PATH"
