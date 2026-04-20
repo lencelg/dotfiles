@@ -42,3 +42,4 @@ other part must be read when setting environment in a new system
 * weathr: for weather infomation
 * "keyboard.dispatch": "keyCode" used in vscode for keybing change(caps: swapspace in niri)
 * use relative number in vscode
+* lswt for showing app-id in wayland
