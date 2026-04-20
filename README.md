@@ -29,6 +29,8 @@ other part must be read when setting environment in a new system
 * waybar
 ## locker
 * swaylock-effects
+## player
+* mpv-modernz-git
 ## other
 * kwalletrc: used for kde wallet password, store at ~/.config
 * fonts.conf: used for chinese font setup in archlinux, stored at ~/.config/fontconfig/
