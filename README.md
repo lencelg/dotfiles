@@ -45,3 +45,4 @@ other part must be read when setting environment in a new system
 * use relative number in vscode
 * lswt for showing app-id in wayland
 * editor /etc/vconsole.conf to use us keymap
+* wshowkeys-mao-git: used in niri to show keys pressed(not used often)
