@@ -98,7 +98,6 @@ alias note="cd ~/code/note/2026/"
 alias zed="zeditor"
 alias gcmsg="git commit -m"
 alias gss="git status"
-alias book="cd ~/code/note/2026/other/"
 alias cat="bat"
 alias ls="lsd"
 [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
