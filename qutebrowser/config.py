@@ -8,6 +8,7 @@ old_path = os.environ["PATH"]
 os.environ["PATH"] = f"/opt/homebrew/bin:{old_path}"
 
 c.scrolling.bar = "always"
+c.qt.force_software_rendering = 'chromium'
 
 # pylint settings included to disable linting errors
 config.load_autoconfig(False) # load settings done via the gui
