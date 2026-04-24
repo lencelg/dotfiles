@@ -1,6 +1,5 @@
 # shellcheck shell=bash
 # shellcheck disable=SC2034
-
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
