@@ -1,7 +1,7 @@
 {
   // Workspaces
   "niri/workspaces": {
-    "on-click": "activate"
+    "on-click": "activate",
   },
 
   // Taskbar, no longer needed

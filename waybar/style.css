@@ -5,7 +5,7 @@
 window#waybar {
     font-size: 15px;
     border-radius: 0px;
-    margin: 0px;
+    margin: 4px;
     padding: 0;
     background-color: #321414;
 }
@@ -32,16 +32,13 @@ window#waybar {
 /* Workspace container */
 #niri-workspaces {
     background: #1e222a;
-    font-weight: bold;
-    border-radius: 0px;
-    font-size: 8px;
+    border-radius: 10px;
     color: #e0e0e0;
 }
 
 /* Individual workspace buttons */
-#niri-workspaces button {
-    border-radius: 0px;
-    font-size: 8px;
+#workspaces button {
+    min-width: 2px;
 }
 
 #workspaces button.active {
