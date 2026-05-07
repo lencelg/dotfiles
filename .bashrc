@@ -99,5 +99,6 @@ alias gcmsg="git commit -m"
 alias gss="git status"
 alias cat="bat"
 alias ls="lsd"
+alias lab="cd ~/code/jnu_course/lab/"
 [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 export PATH="$HOME/.cargo/bin:$PATH"
