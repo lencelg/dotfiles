@@ -126,7 +126,7 @@
     //weather to get zhuhai weather
     "custom/weather": {
         "exec": "curl 'https://wttr.in/zhuhai?format=1'",
-        "interval": 3600,
+        "interval": 120,
         "format": "{}",
         "tooltip": true
     },
