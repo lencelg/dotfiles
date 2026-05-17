@@ -12,7 +12,7 @@ c.scrolling.bar = "always"
 # pylint settings included to disable linting errors
 config.load_autoconfig(False) # load settings done via the gui
 
-c.qt.force_software_rendering = 'chromium'
+# c.qt.force_software_rendering = 'chromium'
 
 import subprocess
 def read_xresources(prefix):
