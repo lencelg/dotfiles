@@ -100,6 +100,6 @@ alias cat="bat"
 alias ls="lsd"
 alias lab="cd ~/code/jnu_course/lab/"
 alias cl="clear"
-alias nvim="vi"
+alias vi="nvim"
 [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 export PATH="$HOME/.cargo/bin:$PATH"
