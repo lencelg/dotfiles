@@ -231,9 +231,11 @@ vim.lsp.config('lua_ls', {
 vim.lsp.config('bash-language-server', {})
 vim.lsp.config('harper-ls', {})
 vim.lsp.config('pyright', {})
+vim.lsp.config('clangd', {})
+vim.lsp.config('codebook', {})
 
 -- 启用 LSP
-vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd', 'bash-language-server', 'harper-ls' })
+vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd', 'bash-language-server', 'harper-ls' , 'codebook'})
 -- LSP 诊断显示
 vim.diagnostic.config({ virtual_text = true }) -- 行内文本提示
 -- vim.diagnostic.config({ virtual_lines = true }) -- 虚拟行提示（可选）
