@@ -24,7 +24,6 @@ vim.g.mapleader = " "
 -- 插件管理（vim.pack） --
 ----------------------
 vim.pack.add({
-    -- { src = 'https://github.com/armannikoyan/rusty' },                    -- rusty
     { src = 'https://github.com/antonk52/lake.nvim' },                    -- lake theme
     { src = 'https://github.com/blazkowolf/gruber-darker.nvim' },         -- gruber-darker theme 
     { src = 'https://github.com/folke/tokyonight.nvim' },                 -- tokyaonigh
@@ -43,19 +42,14 @@ vim.pack.add({
     { src = 'https://github.com/mrcjkb/rustaceanvim', ft = 'rust'},       --rust
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter'},        -- treesitter
     { src = 'https://github.com/nvim-mini/mini.nvim'},                    -- if you use the mini.nvim suite
-    {src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim'},
-    -- 'https://github.com/nvim-mini/mini.icons',        -- if you use standalone mini plugins
-    -- 'https://github.com/nvim-tree/nvim-web-devicons', -- if you prefer nvim-web-devicons
 })
 
-
--- render-markdown 配置
-vim.api.nvim_create_autocmd('User', {
-    pattern = 'Packadd-render-markdown.nvim',
-    callback = function()
-        require('render-markdown').setup({ render_modes = { 'n', 'c', 't' } })
-    end,
-})
+-- markview config
+vim.pack.add({ "https://github.com/OXY2DEV/markview.nvim", })
+require("markview").setup({
+    preview = { enable = false },
+    latex = { enable = true}
+});
 
 -- rustaceanvim 配置
 -- vim.api.nvim_create_autocmd('User', {
@@ -299,7 +293,7 @@ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementa
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Find references' })
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP code action' })
-vim.keymap.set('n', '<leader>m', ':Mason<CR>', { desc = 'open Mason' })
+vim.keymap.set('n', '<leader>ma', ':Mason<CR>', { desc = 'open Mason' })
 vim.keymap.set('n', '<leader>n', ':bn<CR>', { desc = 'move to next buffer' })
 vim.keymap.set('n', '<leader>p', ':bp<CR>', { desc = 'move to previous buffer' })
 vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = 'delete current buffer' })
@@ -310,6 +304,8 @@ vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ wrap = true, count = -1 }) end, { desc = 'prev diagnostic' })
 vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ wrap = true, count = 1 }) end, { desc = 'next diagnostic' })
 
+-- markdown key
+vim.api.nvim_set_keymap("n", "<leader>ms", "<CMD>Markview splitToggle<CR>", { desc = "Toggles `splitview` for current buffer." });
 -- ============================================================================
 -- 其他功能（复制高亮）
 -- ============================================================================
