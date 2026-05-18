@@ -128,9 +128,21 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 -- lualine 启用
-require("lualine").setup({
-    options = { theme = 'powerline_dark' },
-})
+local function lencelg()
+    return [[lencelg]]
+end
+
+require('lualine').setup{
+    options = { 
+        theme = 'palenight',
+        section_separators = '',
+        component_separators = '',
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_x = {lencelg},
+     },
+}
 
 ----------------------
 -- 插件配置 --
