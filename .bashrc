@@ -101,5 +101,6 @@ alias ls="lsd"
 alias lab="cd ~/code/jnu_course/lab/"
 alias cl="clear"
 alias vi="nvim"
+alias gp="git push"
 [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 export PATH="$HOME/.cargo/bin:$PATH"
