@@ -1,0 +1,21 @@
+-- Neovim 基础设置
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.wrap = true
+vim.opt.scrolloff = 5
+vim.opt.signcolumn = 'yes'
+vim.opt.winborder = 'rounded'
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldlevel = 99
+vim.opt.inccommand = 'split'
+vim.opt.clipboard = 'unnamedplus'
+vim.g.mapleader = ' '
