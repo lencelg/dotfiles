@@ -108,8 +108,8 @@ binds {
     // ─── Workspace Switching ───
     MOD+J                               cooldown-ms=150 { focus-workspace-down; }
     MOD+K                               cooldown-ms=150 { focus-workspace-up; }
-    ALT+J                               cooldown-ms=150 { move-column-to-workspace-down; }
-    ALT+K                               cooldown-ms=150 { move-column-to-workspace-up; }
+    MOD+ALT+J                           cooldown-ms=150 { move-column-to-workspace-down; }
+    MOD+ALT+K                           cooldown-ms=150 { move-column-to-workspace-up; }
 
     MOD+WHEELSCROLLRIGHT                { focus-column-right; }
     MOD+WHEELSCROLLLEFT                 { focus-column-left; }
