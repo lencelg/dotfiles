@@ -9,7 +9,11 @@ function M.load(module)
     require('mini.tabline').setup()
     require('mini.icons').setup()
     if module == 'files' then
-        require('mini.files').setup()
+        require('mini.files').setup({
+            mappings = {
+                synchronize = 'n',
+            },
+        })
         require('mini.files').open()
     elseif module == 'pick' then
         require('mini.pick').setup()

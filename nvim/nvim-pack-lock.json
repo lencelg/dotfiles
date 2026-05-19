@@ -224,6 +224,11 @@
       "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "spring-boot.nvim": {
+      "rev": "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0",
+      "src": "https://github.com/JavaHello/spring-boot.nvim",
+      "version": "'218c0c26c14d99feca778e4d13f5ec3e8b1b60f0'"
+    },
     "switch.vim": {
       "rev": "0fe38fd3fa6433101f4e173f681bb134e175c022",
       "src": "https://github.com/AndrewRadev/switch.vim"
