@@ -19,3 +19,4 @@ vim.opt.foldlevel = 99
 vim.opt.inccommand = 'split'
 vim.opt.clipboard = 'unnamedplus'
 vim.g.mapleader = ' '
+vim.opt.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"

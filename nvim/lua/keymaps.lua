@@ -40,7 +40,7 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<ESC>:write<CR>', { desc = 'Save fil
 -- 缓冲区
 vim.keymap.set('n', '<leader>n', ':bn<CR>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>p', ':bp<CR>', { desc = 'Previous buffer' })
-vim.keymap.set('n', '<leader>bd', ':bd<CR>', { desc = 'Delete buffer' })
+vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = 'Delete buffer' })
 
 -- 终端
 vim.keymap.set('n', '<leader>t', ':terminal<CR>', { desc = 'Open terminal' })
