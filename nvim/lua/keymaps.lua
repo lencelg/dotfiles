@@ -59,4 +59,4 @@ vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ wrap = true, count = 
 vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ wrap = true, count = 1 }) end, { desc = 'Next diagnostic' })
 
 -- Markview
-vim.keymap.set('n', '<leader>ms', '<CMD>Markview splitToggle<CR>', { desc = 'Toggle markview split' })
+vim.keymap.set('n', '<leader>ms', '<CMD>Markview Toggle<CR>', { desc = 'Toggle markview' })

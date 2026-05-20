@@ -24,8 +24,8 @@ vim.pack.add({
     { src = 'https://github.com/nvim-lualine/lualine.nvim', type = 'opt' },
 
     -- Markdown
-    { src = 'https://github.com/OXY2DEV/markview.nvim', type = 'opt' },
+    { src = 'https://github.com/OXY2DEV/markview.nvim', type = 'opt' , on_filetype = 'markdwon'},
 
     -- Rust
-    { src = 'https://github.com/mrcjkb/rustaceanvim', type = 'opt', ft = 'rust' },
+    { src = 'https://github.com/mrcjkb/rustaceanvim', type = 'opt', ft = 'rust' , on_filetype = 'rs'},
 })
