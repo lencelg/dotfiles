@@ -21,4 +21,4 @@ opt.inccommand = 'split'
 opt.clipboard = 'unnamedplus'
 vim.g.mapleader = ' '
 opt.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
-vim.cmd("language en_US")
+vim.env.LANG = 'en_US.UTF-8'
