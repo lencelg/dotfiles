@@ -13,7 +13,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', '"+d', { desc = 'Cut to clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from clipboard' })
 
 -- 撤销
-vim.keymap.set({ 'n', 'v', 'i' }, '<C-z>', '<ESC>u<CR>', { desc = 'Undo' })
+-- vim.keymap.set({ 'n', 'v', 'i' }, '<C-z>', '<ESC>u<CR>', { desc = 'Undo' })
 
 -- 窗口管理
 vim.keymap.set('n', '<leader>ww', '<C-w>w', { desc = 'Focus next window' })

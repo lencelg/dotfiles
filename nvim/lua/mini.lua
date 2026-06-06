@@ -11,7 +11,7 @@ function M.load(module)
     if module == 'files' then
         require('mini.files').setup({
             mappings = {
-                synchronize = 'n',
+                synchronize = 's',
             },
         })
         require('mini.files').open()
