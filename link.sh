@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dots=("qutebrowser" "foot" "niri" "waybar" "wayshot" "yazi" "kitty" "mako" "nvim" "swaylock" "weathr" "rofi")
+dots=("qutebrowser" "foot" "niri" "waybar" "wayshot" "yazi" "kitty" "mako" "nvim" "swaylock" "weathr" "rofi" "lsd")
 BACKUP_DIR="$HOME/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 
 # 创建备份目录
