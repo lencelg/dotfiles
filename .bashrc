@@ -102,5 +102,18 @@ alias lab="cd ~/code/jnu_course/lab/"
 alias cl="clear"
 alias vi="nvim"
 alias gp="git push"
-[ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
+alias blog="cd ~/code/lencelg.github.io/"
+# [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
+
+conda() {
+    if ! command -v conda &> /dev/null; then
+        if [ -f /opt/miniforge/etc/profile.d/conda.sh ]; then
+            source /opt/miniforge/etc/profile.d/conda.sh
+        else
+            echo "Error: conda.sh not found" >&2
+            return 1
+        fi
+    fi
+    conda "$@"
+}
 export PATH="$HOME/.cargo/bin:$PATH"
