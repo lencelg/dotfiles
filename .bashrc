@@ -106,7 +106,7 @@ alias lab="cd ~/code/jnu_course/lab/"
 alias cl="clear"
 alias vi="nvim"
 alias gp="git push"
-alias blog="cd ~/code/lencelg.github.io/"
+alias blog="cd ~/code/gh/lencelg.github.io/"
 # [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 
 conda() {
