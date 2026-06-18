@@ -10,5 +10,4 @@ require('mini')      -- mini.nvim 系列快捷键与配置
 require('lualine-config')   -- 状态栏
 require('markview')  -- Markdown 增强
 require('rust')      -- Rust 支持（可选）
-require('cpp_builder') -- cpp 23 compile and run
 require('cd-navigator')

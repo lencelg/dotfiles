@@ -44,7 +44,7 @@ vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = 'Delete buffer' })
 
 -- 终端
 vim.keymap.set('n', '<leader>t', ':terminal<CR>', { desc = 'Open terminal' })
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- LSP 快捷键（依赖 lsp 模块，但定义在此处，实际调用 vim.lsp.buf.* 在 lsp 加载后可用）
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })

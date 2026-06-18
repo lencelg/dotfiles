@@ -1,5 +1,5 @@
--- 懒加载 LSP 相关插件 (在首次 BufReadPre 时加载)
-vim.api.nvim_create_autocmd('BufReadPre', {
+-- 懒加载 LSP 相关插件 (首次读取或新建文件时加载)
+vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
     once = true,
     callback = function()
         vim.cmd('packadd mason.nvim')
@@ -27,7 +27,11 @@ vim.api.nvim_create_autocmd('BufReadPre', {
             },
         })
         vim.lsp.config('pyright', {})
-        vim.lsp.config('clangd', {})
+        vim.lsp.config('clangd', {
+            init_options = {
+                fallbackFlags = { '-std=c++23' },
+            },
+        })
         vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd'})
 
         vim.diagnostic.config({ virtual_text = true })

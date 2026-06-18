@@ -10,10 +10,9 @@ vim.api.nvim_create_autocmd('InsertEnter', {
         cmp.setup({
             keymap = { preset = 'super-tab' },
             sources = {
-                default = { 'lsp', 'path', 'snippets', 'buffer' },
+                default = { 'lsp', 'path', 'buffer' },
                 providers = {
                     lsp = { name = 'LSP' },
-                    snippets = { name = 'luasnip' },
                 },
             },
             completion = { documentation = { auto_show = true } },

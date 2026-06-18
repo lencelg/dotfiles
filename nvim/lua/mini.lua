@@ -3,11 +3,16 @@
 
 local M = {}
 
-require('mini.pairs').setup()
-function M.load(module)
+-- 首次加载 mini.nvim 并初始化基础模块
+local function ensure_mini()
     vim.cmd('packadd mini.nvim')
+    require('mini.pairs').setup()
     require('mini.tabline').setup()
     require('mini.icons').setup()
+end
+
+function M.load(module)
+    ensure_mini()
     if module == 'files' then
         require('mini.files').setup({
             mappings = {
@@ -21,5 +26,11 @@ function M.load(module)
         require('mini.jump').setup()
     end
 end
+
+-- 在 VimEnter 时自动加载基础模块（pairs/tabline/icons）
+vim.api.nvim_create_autocmd('VimEnter', {
+    once = true,
+    callback = ensure_mini,
+})
 
 return M

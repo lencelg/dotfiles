@@ -50,7 +50,6 @@ local function pick_and_cd(fd_cmd, prompt, is_local, base_dir)
             items = items,
             name = prompt,
         },
-        -- ... 前面的 check_deps, pick_and_cd 等保持不变，只修改 choose 部分
         choose = function(item)
             local target = path_map[item]
             if target then
