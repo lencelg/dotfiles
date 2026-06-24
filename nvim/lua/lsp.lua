@@ -27,12 +27,8 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
             },
         })
         vim.lsp.config('pyright', {})
-        vim.lsp.config('clangd', {
-            init_options = {
-                fallbackFlags = { '-std=c++23' },
-            },
-        })
-        vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd'})
+        vim.lsp.config('clangd', {})
+        vim.lsp.enable({ 'lua_ls', 'pyright', 'clangd' })
 
         vim.diagnostic.config({ virtual_text = true })
     end,

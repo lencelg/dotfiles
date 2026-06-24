@@ -107,6 +107,9 @@ alias cl="clear"
 alias vi="nvim"
 alias gp="git push"
 alias blog="cd ~/code/gh/lencelg.github.io/"
+alias lg="lazygit"
+alias toy="cd ~/code/gh/toys/"
+alias d2l="cd ~/code/d2l/"
 
 [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 
