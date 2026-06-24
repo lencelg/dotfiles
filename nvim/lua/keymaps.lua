@@ -21,8 +21,11 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move left' })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move down' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move up' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move right' })
+
 vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { desc = 'Vertical split' })
 vim.keymap.set('n', '<leader>sh', ':split<CR>', { desc = 'Horizontal split' })
+
+
 vim.keymap.set('n', '<C-Up>', ':resize +2<CR>', { desc = 'Increase height' })
 vim.keymap.set('n', '<C-Down>', ':resize -2<CR>', { desc = 'Decrease height' })
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { desc = 'Decrease width' })
@@ -43,8 +46,10 @@ vim.keymap.set('n', '<leader>p', ':bp<CR>', { desc = 'Previous buffer' })
 vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = 'Delete buffer' })
 
 -- 终端
-vim.keymap.set('n', '<leader>t', ':terminal<CR>', { desc = 'Open terminal' })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('n', '<Leader>tr', function() vim.cmd.vsplit() vim.cmd.wincmd("l") vim.cmd.term() end, {desc = '右侧终端'})
+vim.keymap.set('n', '<Leader>tl', function() vim.cmd.vnew() vim.cmd.term() end, {desc = '左侧终端'})
+vim.keymap.set('n', '<Leader>tb', function() vim.cmd.split() vim.cmd.wincmd("j") vim.cmd.term() end, {desc = '底部终端'})
 
 -- LSP 快捷键（依赖 lsp 模块，但定义在此处，实际调用 vim.lsp.buf.* 在 lsp 加载后可用）
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
