@@ -1,37 +1,33 @@
-// Niri configuration for CachyOS
-// For documentation and full reference, see: https://github.com/YaLTeR/nfootifootri/wiki
-
-// ────────────── Input Configuration ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 
 input {
     keyboard {
         xkb {
-            layout "us" // Use the German keyboard layout
+            layout "us"
             options "caps:swapescape" 
         }
         repeat-delay 300
         repeat-rate 50
-        numlock // Enable numlock on startup
+        numlock
     }
 
     touchpad {
-        tap // Enable tap-to-click
-        natural-scroll // Enable natural (macOS-style) scrolling
+        tap
+        natural-scroll
     }
 
-    focus-follows-mouse // Automatically focus windows under the mouse pointer
-    workspace-auto-back-and-forth // Enable workspace back & forth switching
+    focus-follows-mouse
+    workspace-auto-back-and-forth
 }
+
+// ────────────── Output Configuration ──────────────
+// run `niri msg outputs`
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"{
     mode "1920x1080@239.999"
     focus-at-startup
 }
 
-// ────────────── Output Configuration ──────────────
-// You can run `niri msg outputs` to get the correct name for your displays.
-// You will have to remove "/-" and edit it before it takes effect.
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 workspace "w" {
     open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
 }
@@ -50,14 +46,16 @@ binds {
 
     // ─── Applications ───
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: foot" { spawn-sh "foot"; }
-    // MOD+D                               hotkey-overlay-title="Open App Launcher: bemenu" { spawn-sh "bemenu-run -l 5 --fn 'monospace[17]' -R 15"; }
     MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "rofi -show drun"; }
     MOD+B                               hotkey-overlay-title="Open Browser: qutebrowser" { spawn-sh "qutebrowser"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
+
+    // bemenu not in used
+    // MOD+D                               hotkey-overlay-title="Open App Launcher: bemenu" { spawn-sh "bemenu-run -l 5 --fn 'monospace[17]' -R 15"; }
     
     MOD+E                               hotkey-overlay-title="File Manager: nemo" { spawn-sh "nemo"; }
     MOD+F1                              hotkey-overlay-title="sniaper : flameshot" { spawn-sh "flameshot gui"; } 
-    MOD+CTRL+P                         hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh";}
+    MOD+CTRL+P                          hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh";}
 
     // ─── Audio Controls ───
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -174,21 +172,18 @@ binds {
     MOD+O                               repeat=false { toggle-overview; }
 }
 
-// ────────────── Startup Applications ──────────────
+
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
-    spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1" // Polkit
-    spawn-sh-at-startup "awww-daemon" // Wallpaper daemon
-    spawn-sh-at-startup "awww img ~/picture/wallpapers/4.png" // Set wallpaper
-    spawn-sh-at-startup "waybar" // Launch waybar
+    spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+    spawn-sh-at-startup "awww-daemon"
+    spawn-sh-at-startup "awww img ~/picture/wallpapers/4.png"
+    spawn-sh-at-startup "waybar"
     
-    // optional, show the keys
-    // spawn-sh-at-startup "wshowkeys -a bottom -F 'Sans Bold 20' -s '#B5B520ff' -f  '#ecd29cff' -b '#201B1488' -l 60"
-
     prefer-no-csd // Disable program decorations
     screenshot-path null // Disable screenshot saving
 
-// ────────────── Layout Settings ──────────────
+
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
     layout {
@@ -236,8 +231,8 @@ binds {
         struts {}
     }
 
-// ────────────── Animation Settings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+
     animations {
         workspace-switch {
             spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
@@ -271,27 +266,16 @@ binds {
         }
     }
 
-// ────────────── Window Rules ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
     window-rule {
         match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-        open-floating true // Always float Firefox PiP windows
+        open-floating true
     }
 
     window-rule {
-        geometry-corner-radius 20 // Set every window radius to 20
+        geometry-corner-radius 15
         clip-to-geometry true
-    }
-    window-rule {
-        match app-id="alacritty"
-        open-maximized true
-    }
-
-    window-rule {
-        match app-id="kitty"
-//        open-maximized-to-edges true
-        opacity 0.95
     }
 
     window-rule {
@@ -303,6 +287,8 @@ binds {
         match app-id="code"
         match app-id="foot"
         match app-id="dev.zed.Zed"
+        match app-id="kitty"
+        match app-id="alacritty"
 
         background-effect{
             blur true
@@ -313,7 +299,9 @@ binds {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
-// ────────────── Environment Variables ──────────────
+
+
+
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 
     environment {
@@ -331,4 +319,11 @@ binds {
 
     hotkey-overlay {
         skip-at-startup
+    }
+
+    cursor {
+        xcursor-theme "breeze_cursors"
+        xcursor-size 30
+
+        // hide-when-typing
     }
