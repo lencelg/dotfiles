@@ -322,7 +322,7 @@ binds {
     }
 
     cursor {
-        xcursor-theme "breeze_cursors"
+        // xcursor-theme "breeze_cursors"
         xcursor-size 30
 
         // hide-when-typing
