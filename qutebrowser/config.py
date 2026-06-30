@@ -33,7 +33,8 @@ c.zoom.default = 125
 
 c.url.searchengines = {
 # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
-        'DEFAULT': 'https://duckduckgo.com/?q={}',
+        'DEFAULT': 'https://www.google.com/search?q={}',
+        '!dg': 'https://duckduckgo.com/?q={}',
         '!gg': 'https://www.google.com/search?q={}',
         '!bl' : 'https://search.bilibili.com/all?keyword={}&search_source=1',
         '!yt': 'https://www.youtube.com/results?search_query={}',
