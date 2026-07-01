@@ -1,5 +1,19 @@
 [opener]
 edit = [
-  { run = "nvim \"$@\"", block = true }
+    { run = 'nvim "$@"', block = true, desc = "Neovim" }
+]
+play = [
+    { run = 'mpv "$@"', orphan = true, desc = "MPV Player" }
+]
+web = [
+    {run = 'barve "$@"', orphan = true, desc = "open in brave browser"}
 ]
 
+[open]
+prepend_rules = [
+    { url = "*.json", use = "edit" },
+    
+    { mime = "video/*", use = "play" },
+    
+    { url = "*.html", use = [ "open", "edit" ] }
+]
