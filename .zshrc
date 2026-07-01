@@ -1,5 +1,6 @@
 export ZSH="/usr/share/oh-my-zsh"
 
+ZSH_THEME="murilasso"
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS="true"
 
