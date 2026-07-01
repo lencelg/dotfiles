@@ -1,5 +1,7 @@
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh 
+
 bindkey -v
+bindkey '^ ' autosuggest-accept
 
 # alias config
 alias search="pacman -Ss"
