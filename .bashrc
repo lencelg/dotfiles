@@ -103,7 +103,7 @@ alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'
 alias lab="cd ~/code/jnu_course/lab/"
-alias cl="clear"
+alias c="clear"
 alias vi="nvim"
 alias gp="git push"
 alias blog="cd ~/code/gh/lencelg.github.io/"
@@ -111,7 +111,7 @@ alias lg="lazygit"
 alias toy="cd ~/code/gh/toys/"
 alias d2l="cd ~/code/d2l/"
 alias f="fastfetch"
-alias rev="cd ~/code/jnu_course/fourth-semester-review/"
+alias rev="cd ~/code/jnu_course/review/"
 
 [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 
