@@ -28,4 +28,7 @@ vim.pack.add({
 
     -- Rust
     { src = 'https://github.com/mrcjkb/rustaceanvim', type = 'opt' },
+
+    --typst preview
+    { src = 'https://github.com/chomosuke/typst-preview.nvim', type = 'opt'}
 })

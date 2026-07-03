@@ -33,3 +33,11 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
         vim.diagnostic.config({ virtual_text = true })
     end,
 })
+
+vim.lsp.config["tinymist"] = {
+    cmd = { "tinymist" },
+    filetypes = { "typst" },
+    settings = {
+        -- ...
+    }
+}
