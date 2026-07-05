@@ -3,7 +3,7 @@ edit = [
     { run = 'nvim "$@"', block = true, desc = "Neovim" }
 ]
 play = [
-    { run = 'mpv "$@"', orphan = true, desc = "MPV Player" }
+    { run = 'mpv "$@"', block = true, desc = "MPV Player" }
 ]
 web = [
     {run = 'barve "$@"', orphan = true, desc = "open in brave browser"}
