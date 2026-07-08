@@ -313,6 +313,8 @@ binds {
         XDG_SESSION_TYPE "wayland"
         XDG_CURRENT_DESKTOP "niri"
         XMODIFIERS "@im=fcitx"
+        GTK_IM_MODULE "fcitx"
+        QT_IM_MODULE "fcitx"
     }
 
     hotkey-overlay {
