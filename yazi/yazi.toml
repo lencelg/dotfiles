@@ -14,6 +14,8 @@ prepend_rules = [
     { url = "*.json", use = "edit" },
     
     { mime = "video/*", use = "play" },
+
+    { url = "*.mp3", use = "play"},
     
     { url = "*.html", use = [ "open", "edit" ] }
 ]
