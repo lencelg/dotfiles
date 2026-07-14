@@ -3,7 +3,7 @@
 }
 
 window#waybar {
-    font-size: 15px;
+    font-size: 18px;
     border-radius: 0px;
     margin: 4px;
     padding: 0;
@@ -13,14 +13,14 @@ window#waybar {
 
 /* Right-most: Clock */
 #clock {
-    font-size: 15px;
+    font-size: 18px;
     border-radius: 0px;
     padding: 0px 8px;
 }
 
 /* Active window title */
 #window {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 800;
     border-radius: 0px;
     padding: 4px 12px;
@@ -71,28 +71,28 @@ tooltip {
 
 /* All system info modules */
 #pulseaudio{
-    font-size: 16px;
+    font-size: 18px;
 }
 #network{
-    font-size: 16px;
+    font-size: 18px;
 }
 #bluetooth{
-    font-size: 16px;
+    font-size: 18px;
 }
 #battery {
-    font-size: 16px;
+    font-size: 18px;
 }
 #cpu{
-    font-size: 16px;
+    font-size: 18px;
 }
 #memory{
-    font-size: 16px;
+    font-size: 18px;
 }
 #disk{
-    font-size: 16px;
+    font-size: 18px;
 }
 #temperature{
-    font-size: 16px;
+    font-size: 18px;
 }
 #tray{
 }
@@ -100,7 +100,7 @@ tooltip {
 #custom-updates,
 #custom-notification {
     background-color: #1e222a;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 800;
     color: #c0c0c0;
     border-radius: 0px;

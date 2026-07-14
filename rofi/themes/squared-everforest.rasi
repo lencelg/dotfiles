@@ -2,7 +2,7 @@
 /* Author: Newman Sanchez (https://github.com/newmanls) */
 
 * {
-    font:   "FiraCode Nerd Font Medium 12";
+    font:   "FiraCode Nerd Font Medium 16";
 
     bg0:     #2B3339;
     bg1:     #323D43;
@@ -21,7 +21,7 @@
 
 window {
     location:   center;
-    width:      700;
+    width:      800;
 
     background-color:   @bg0;
 }
