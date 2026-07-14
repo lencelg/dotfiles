@@ -7,4 +7,4 @@
 
 //@theme "/home/lencelg/.config/rofi/themes/nord-twoLines.rasi"
 
-@theme "/home/lencelg/.config/rofi/themes/squared-everforest.rasi"
+@theme "~/.config/rofi/themes/squared-everforest.rasi"

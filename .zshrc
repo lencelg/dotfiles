@@ -1,25 +1,7 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+source /usr/share/cachyos-zsh-config/cachyos-config.zsh 
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/birdring/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/birdring/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/birdring/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/birdring/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+bindkey -v
+bindkey '^ ' autosuggest-accept
 
 # alias config
 alias search="pacman -Ss"
@@ -29,8 +11,33 @@ alias fm="yazi"
 alias query="pacman -Qs"
 alias mingw="x86_64-w64-mingw32-gcc"
 alias con="cd ~/.config"
+alias update="sudo pacman -Syu"
+alias info="pacman -Si"
+alias work="cd ~/code/"
+alias note="cd ~/code/note/2026/"
+alias zed="zeditor"
+alias ga="git add"
+alias gcmsg="git commit -m"
+alias gss="git status"
+alias cat="bat"
+alias ls='lsd'
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
+alias lab="cd ~/code/jnu_course/lab/"
+alias c="clear"
+alias vi="nvim"
+alias gp="git push"
+alias blog="cd ~/code/gh/lencelg.github.io/"
+alias lg="lazygit"
+alias toy="cd ~/code/gh/toys/"
+alias d2l="cd ~/code/d2l/"
+alias f="fastfetch"
+alias rev="cd ~/code/jnu_course/review/"
 
-unalias gf
+[ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
+# unalias gf
 # GTK wayland 
 unset GTK_IM_MODULE
 unset QT_IM_MODULE

@@ -1,17 +1,17 @@
 # shellcheck shell=bash
 # shellcheck disable=SC2034
-
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
 	*) return ;;
 esac
-export HISTSIZE=2000
+export HISTSIZE=1000
 export HISTFILESIZE=5000
 
 eval "$(fzf --bash)"
 
 set -o vi
+
 # Path to the bash it configuration
 BASH_IT="$HOME/.bash_it"
 
@@ -19,6 +19,7 @@ BASH_IT="$HOME/.bash_it"
 # Leave empty to disable theming.
 # location "$BASH_IT"/themes/
 export BASH_IT_THEME="bobby"
+
 
 
 # Some themes can show whether `sudo` has a current token or not.
@@ -88,9 +89,41 @@ alias query="pacman -Qs"
 alias mingw="x86_64-w64-mingw32-gcc"
 alias con="cd ~/.config"
 alias update="sudo pacman -Syu"
-alias inf="pacman -Si"
-alias note="cd ~/code/other/note/"
+alias info="pacman -Si"
 alias work="cd ~/code/"
-alias csapp="cd ~/code/csapp/"
-alias note="cd ~/code/record/note/"
+alias note="cd ~/code/note/2026/"
 alias zed="zeditor"
+alias ga="git add"
+alias gcmsg="git commit -m"
+alias gss="git status"
+alias cat="bat"
+alias ls='lsd'
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
+alias lab="cd ~/code/jnu_course/lab/"
+alias c="clear"
+alias vi="nvim"
+alias gp="git push"
+alias blog="cd ~/code/gh/lencelg.github.io/"
+alias lg="lazygit"
+alias toy="cd ~/code/gh/toys/"
+alias d2l="cd ~/code/d2l/"
+alias f="fastfetch"
+alias rev="cd ~/code/jnu_course/review/"
+
+[ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
+
+# conda() {
+#     if ! command -v conda &> /dev/null; then
+#         if [ -f /opt/miniforge/etc/profile.d/conda.sh ]; then
+#             source /opt/miniforge/etc/profile.d/conda.sh
+#         else
+#             echo "Error: conda.sh not found" >&2
+#             return 1
+#         fi
+#     fi
+#     conda "$@"
+# }
+export PATH="$HOME/.cargo/bin:$PATH"
