@@ -12,6 +12,8 @@ c.scrolling.bar = "always"
 # pylint settings included to disable linting errors
 config.load_autoconfig(False) # load settings done via the gui
 
+# c.qt.force_software_rendering = 'chromium'
+
 import subprocess
 def read_xresources(prefix):
     props = {}
@@ -31,7 +33,8 @@ c.zoom.default = 125
 
 c.url.searchengines = {
 # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
-        'DEFAULT': 'https://duckduckgo.com/?q={}',
+        'DEFAULT': 'https://www.google.com/search?q={}',
+        '!dg': 'https://duckduckgo.com/?q={}',
         '!gg': 'https://www.google.com/search?q={}',
         '!bl' : 'https://search.bilibili.com/all?keyword={}&search_source=1',
         '!yt': 'https://www.youtube.com/results?search_query={}',
@@ -41,7 +44,7 @@ c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'his
 
 
 c.auto_save.session = True # save tabs on quit/restart
-c.scrolling.smooth = True
+c.scrolling.smooth = False
 # unbind key
 config.unbind('d')
 config.unbind('u')
@@ -82,6 +85,7 @@ c.tabs.padding = {'top': 5, 'bottom': 5, 'left': 9, 'right': 9}
 c.tabs.indicator.width = 0 # no tab indicators
 # c.window.transparent = true # apparently not needed
 c.tabs.width = '7%'
+c.colors.webpage.darkmode.enabled = True
 
 # fonts
 c.fonts.default_family = "serif"

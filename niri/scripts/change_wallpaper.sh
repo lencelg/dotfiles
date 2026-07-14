@@ -39,7 +39,7 @@ selected=$(echo "$candidates" | shuf -n 1)
 
 echo "$selected" > "$LAST_WALLPAPER_FILE"
 
-swww img "$selected" \
+awww img "$selected" \
     --transition-duration 2
 
 notify-send "wallpaper ：$selected"
