@@ -54,7 +54,7 @@ binds {
     // bemenu not in used
     // MOD+D                               hotkey-overlay-title="Open App Launcher: bemenu" { spawn-sh "bemenu-run -l 5 --fn 'monospace[17]' -R 15"; }
     
-    MOD+E                               hotkey-overlay-title="File Manager: nemo" { spawn-sh "nemo"; }
+    MOD+E                               hotkey-overlay-title="File Manager: nautilus" { spawn-sh "nautilus"; }
     MOD+F1                              hotkey-overlay-title="sniaper : flameshot" { spawn-sh "flameshot gui"; } 
     MOD+CTRL+P                          hotkey-overlay-title="change wallpaper" {spawn-sh "$HOME/.config/niri/scripts/change_wallpaper.sh";}
 
