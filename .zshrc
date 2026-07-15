@@ -36,7 +36,7 @@ alias d2l="cd ~/code/d2l/"
 alias f="fastfetch"
 alias rev="cd ~/code/jnu_course/review/"
 
-[ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
+# [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 # unalias gf
 # GTK wayland 
 unset GTK_IM_MODULE
