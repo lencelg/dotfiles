@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd('InsertEnter', {
         -- vim.cmd('packadd LuaSnip')
         vim.cmd('packadd blink.cmp')
         local cmp = require('blink.cmp')
-        -- cmp.build():pwait()
+        cmp.build():pwait()
         cmp.setup({
             keymap = { preset = 'super-tab' },
             sources = {

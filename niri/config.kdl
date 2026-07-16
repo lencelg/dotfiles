@@ -23,20 +23,9 @@ input {
 // ────────────── Output Configuration ──────────────
 // run `niri msg outputs`
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"{
-    mode "1920x1080@239.999"
-    focus-at-startup
-}
-
-workspace "w" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
-}
-workspace "b" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
-}
-workspace "c" {
-    open-on-output "Beihai Century Joint Innovation Technology Co.,Ltd P2510H PLUS 0000000000000"
-}
+workspace "w" { }
+workspace "b" { }
+workspace "c" { }
 
 // ────────────── Keybindings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
@@ -45,8 +34,8 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: foot" { spawn-sh "foot"; }
-    // MOD+RETURN                          hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty"; }
+    // MOD+RETURN                          hotkey-overlay-title="Open Terminal: foot" { spawn-sh "foot"; }
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty"; }
     MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "rofi -show drun"; }
     MOD+B                               hotkey-overlay-title="Open Browser: qutebrowser" { spawn-sh "qutebrowser"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
@@ -285,10 +274,9 @@ binds {
         open-on-workspace "c"
     }
     window-rule{
-        match app-id="code"
+        // match app-id="code"
         match app-id="foot"
-        match app-id="dev.zed.Zed"
-        match app-id="kitty"
+        // match app-id="kitty"
         match app-id="alacritty"
 
         background-effect{

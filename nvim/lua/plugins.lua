@@ -11,7 +11,10 @@ vim.pack.add({
     { src = 'https://github.com/williamboman/mason-lspconfig.nvim', type = 'opt' },
 
     -- 补全
+    { src = 'https://github.com/saghen/blink.lib' },
     { src = 'https://github.com/saghen/blink.cmp', type = 'opt' },
+
+
     -- { src = 'https://github.com/L3MON4D3/LuaSnip', type = 'opt' },
 
     -- Treesitter
