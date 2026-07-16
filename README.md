@@ -46,3 +46,4 @@ other part must be read when setting environment in a new system
 * lswt for showing app-id in wayland
 * editor /etc/vconsole.conf to use us keymap
 * wshowkeys-mao-git: used in niri to show keys pressed(not used often)
+* refindTTT is a refind theme, but refind is not longer used in current config
