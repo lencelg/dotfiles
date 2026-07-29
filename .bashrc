@@ -143,3 +143,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# Pi
+export PATH="$HOME/.local/bin:$PATH"
+
+# opencode
+export PATH=/home/streamer/.opencode/bin:$PATH
