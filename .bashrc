@@ -11,13 +11,14 @@ export HISTFILESIZE=5000
 
 eval "$(fzf --bash)"
 
-set -o vi
-
 BASH_IT="$HOME/.bash_it"
 
 export BASH_IT_THEME="bobby"
 
+set -o vi
+
 source "${BASH_IT?}/bash_it.sh"
+
 
 alias search="pacman -Ss"
 alias ins="sudo pacman -S"

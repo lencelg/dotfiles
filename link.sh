@@ -89,7 +89,7 @@ for dot in "${dots[@]}"; do
 done
 
 # 处理家目录下的点文件
-home_files=(".zshrc" ".bashrc" ".vimrc")
+home_files=(".zshrc" ".bashrc" ".vimrc" ".inputrc")
 for file in "${home_files[@]}"; do
     target="$HOME/$file"
     source="$HOME/dotfiles/$file"
