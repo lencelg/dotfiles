@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPER_DIR="$HOME/picture/wallpapers"
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 LAST_WALLPAPER_FILE="$HOME/.last_wallpaper"
 
 EXTENSIONS="jpg jpeg png bmp gif webp"
