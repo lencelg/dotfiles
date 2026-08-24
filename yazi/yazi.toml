@@ -1,19 +1,24 @@
 [opener]
 edit = [
-    { run = 'nvim "$@"', block = true, desc = "Neovim" }
+    { run = 'nvim %s', block = true, for = "unix" },
+]
+open_dir = [
+    { run = 'nvim %d1', block = true, for = "unix" },
 ]
 play = [
-    { run = 'mpv "$@"', block = true, desc = "MPV Player" }
+	{ run = 'mpv %s', orphan = true, desc = "MPV" }
 ]
-web = [
-    {run = 'barve "$@"', orphan = true, desc = "open in brave browser"}
+image = [
+    { run = 'qview %s', orphan = true, desc = "qView image viewer"}
 ]
 
 [open]
-prepend_rules = [
-    { url = "*.json", use = "edit" },
-    
-    { mime = "video/*", use = "play" },
-    
-    { url = "*.html", use = [ "open", "edit" ] }
+rules = [
+    { url = "*.txt", use = "edit" },
+	{ url = "*.md",  use = "edit" },
+	{ url = "*.mp3",  use = "play" },
+	{ mime = "video/*", use = "play" },
+	{ mime = "image/*", use = "image" },
+	{ mime = "audio/*", use = "play" },
+    { url = "*", use = [ "edit", "open_dir" ] },
 ]
