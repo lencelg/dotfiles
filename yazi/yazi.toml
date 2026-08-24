@@ -6,19 +6,25 @@ open_dir = [
     { run = 'nvim %d1', block = true, for = "unix" },
 ]
 play = [
-	{ run = 'mpv %s', orphan = true, desc = "MPV" }
+	{ run = 'mpv %s', block = true, desc = "MPV", for = "unix"}
 ]
 image = [
     { run = 'qview %s', orphan = true, desc = "qView image viewer"}
 ]
+system = [
+    { run = 'xdg-open %s',  orphan = true, for = "unix", desc = "Open with XDG"}
+]
 
 [open]
 rules = [
-    { url = "*.txt", use = "edit" },
-	{ url = "*.md",  use = "edit" },
 	{ url = "*.mp3",  use = "play" },
 	{ mime = "video/*", use = "play" },
-	{ mime = "image/*", use = "image" },
 	{ mime = "audio/*", use = "play" },
-    { url = "*", use = [ "edit", "open_dir" ] },
+	{ mime = "image/*", use = "image" },
+
+	{ mime = "text/*", use = "edit" },
+	{ mime = "application/{json,xml,yaml,javascript,toml,x-empty}", use = "edit" },
+	{ url = "*.{txt,md,typ,c,cpp,h,hpp,rs,go,py,lua,toml,yml,yaml,json,conf,cfg,ini,env,log,sh,bash,zsh,vim,lock}", use = "edit" },
+
+	{ url = "*", use = [ "system", "edit", "open_dir" ] },
 ]

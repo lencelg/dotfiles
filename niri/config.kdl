@@ -177,6 +177,7 @@ binds {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+    spawn-sh-at-startup "/usr/lib/xdg-desktop-portal-gnome &"
     spawn-sh-at-startup "awww-daemon"
     spawn-sh-at-startup "awww img ~/Pictures/wallpapers/4.png"
     spawn-sh-at-startup "waybar"
