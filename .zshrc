@@ -22,7 +22,6 @@ alias update="sudo pacman -Syu"
 alias info="pacman -Si"
 alias work="cd ~/code/"
 alias note="cd ~/code/note/2026/"
-alias zed="zeditor"
 alias ga="git add"
 alias gcmsg="git commit -m"
 alias gss="git status"
@@ -32,7 +31,6 @@ alias l='lsd -l'
 alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'
-alias lab="cd ~/code/jnu_course/lab/"
 alias c="clear"
 alias vi="nvim"
 alias gp="git push"
@@ -50,3 +48,18 @@ export XMODIFIERS="@im=fcitx"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/streamer/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/streamer/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/streamer/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/streamer/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
