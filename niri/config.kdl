@@ -4,7 +4,7 @@ input {
     keyboard {
         xkb {
             layout "us"
-            options "caps:swapescape" 
+            // options "caps:swapescape" 
         }
         repeat-delay 300
         repeat-rate 50

@@ -48,3 +48,4 @@ other part must be read when setting environment in a new system
 * editor /etc/vconsole.conf to use us keymap
 * wshowkeys-mao-git: used in niri to show keys pressed(not used often)
 * refindTTT is a refind theme, but refind is not longer used in current config
+* keyd: use to swap keys in system level, *useful*, niri origin ones is diabled
