@@ -6,7 +6,7 @@ open_dir = [
     { run = 'nvim %d1', block = true, for = "unix" },
 ]
 play = [
-	{ run = 'mpv %s', block = true, desc = "MPV", for = "unix"}
+	{ run = 'reinplayer %s', block = true, desc = "reinplayer", for = "unix"}
 ]
 image = [
     { run = 'qview %s', orphan = true, desc = "qView image viewer"}
