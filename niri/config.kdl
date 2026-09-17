@@ -309,6 +309,11 @@ binds {
         open-focused false
     }
 
+    window-rule {
+        match app-id="fcitx"
+        open-floating true
+    }
+
 
 
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
@@ -322,7 +327,7 @@ binds {
         XDG_CURRENT_DESKTOP "niri"
         XMODIFIERS "@im=fcitx"
         GTK_IM_MODULE "fcitx"
-        QT_IM_MODULE "fcitx"
+        QT_IM_MODULE "text-input-unstable-v3"
     }
 
     hotkey-overlay {
