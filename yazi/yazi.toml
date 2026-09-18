@@ -6,11 +6,16 @@ open_dir = [
     { run = 'nvim %d1', block = true, for = "unix" },
 ]
 play = [
-	{ run = 'reinplayer %s', block = true, desc = "reinplayer", for = "unix"}
+	{ run = 'mpv %s', block = true, desc = "mpv", for = "unix"}
 ]
 image = [
     { run = 'qview %s', orphan = true, desc = "qView image viewer"}
 ]
+
+unzip = [
+    { run = 'unzip %s', orphan = true, desc = "unzip zip files"}
+]
+
 system = [
     { run = 'xdg-open %s',  orphan = true, for = "unix", desc = "Open with XDG"}
 ]
@@ -18,6 +23,7 @@ system = [
 [open]
 rules = [
 	{ url = "*.mp3",  use = "play" },
+	{ url = "*.zip",  use = "unzip" },
 	{ mime = "video/*", use = "play" },
 	{ mime = "audio/*", use = "play" },
 	{ mime = "image/*", use = "image" },
