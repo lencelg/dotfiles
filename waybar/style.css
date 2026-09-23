@@ -120,18 +120,18 @@ tooltip {
         color: #ffffff;
     }
 }
-#mpris {
+#custom-mpris {
     padding: 0 10px;          
 }
 
-#mpris.playing {
+#custom-mpris.playing {
     color: #a3be8c; 
 }
 
-#mpris.paused {
+#custom-mpris.paused {
     color: #b48ead; 
 }
 
-#mpris.stopped {
+#custom-mpris.stopped {
     color: #d8dee9; 
 }

@@ -18,7 +18,7 @@
     ],
 
     "modules-center": [
-        "mpris"
+        "custom/mpris"
     ],
 
     "modules-right": [

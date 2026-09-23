@@ -105,22 +105,19 @@
         "tooltip": true
     },
 
-  // audio playing info
-   "mpris": {
-        "format": " {artist} - {title}{status_icon}",
-
-        "format-paused": "{artist} - {title} pause",
-
-        "format-stopped": "♪: None ",
-
-        "status-icons": {
-            "playing": "▶",   
-            "paused": "⏸",   
-            "stopped": "⏹"  
-        },
-        "max-length": 25,
-
-        "tooltip-format": "{player} - {status}\n{artist} - {title}\n{album}\n总长度: {length}"
+  // Audio playing info.
+  // Uses a playerctl-backed custom module instead of the native "mpris"
+  // module: the native one segfaults in waybar 0.15.0 when a browser
+  // starts a video (upstream libplayerctl/GLib signal teardown bug).
+  "custom/mpris": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/media.sh",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": true,
+        "on-click": "playerctl play-pause",
+        "on-click-middle": "playerctl previous",
+        "on-click-right": "playerctl next"
     },
 
     //weather to get zhuhai weather
