@@ -181,6 +181,8 @@ binds {
     spawn-sh-at-startup "awww-daemon"
     spawn-sh-at-startup "awww img ~/Pictures/wallpapers/4.png"
     spawn-sh-at-startup "waybar"
+    // WiFi/network tray icon (from network-manager-applet). Shows up in waybar's "tray".
+    spawn-sh-at-startup "nm-applet --indicator"
     
     prefer-no-csd // Disable program decorations
     screenshot-path null // Disable screenshot saving
