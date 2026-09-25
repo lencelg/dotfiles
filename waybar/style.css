@@ -1,8 +1,5 @@
 * {
     font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    /* Explicit default text colour so waybar never inherits the GTK theme
-       foreground (COSMIC/Cinnamon theme changes used to make it grey). */
-    color: #ffffff;
 }
 
 window#waybar {
@@ -11,7 +8,10 @@ window#waybar {
     margin: 4px;
     padding: 0;
     background-color: #321414;
-    color: #ffffff;
+    /* Default text colour, set here (not on *) so it is only inherited and
+       per-module colours still win. Also stops waybar inheriting the GTK
+       theme foreground (COSMIC theme changes used to make it grey). */
+    color: #e0e0e0;
 }
 
 
