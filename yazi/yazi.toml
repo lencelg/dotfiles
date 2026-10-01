@@ -1,12 +1,16 @@
 [opener]
+# NOTE: yazi >= 25.5 replaced the old "$@" / "$1" placeholders with
+# %s (all hovered files) / %s1 (single file) / %d1 (parent dir).
+# The old "$@" was passed to $SHELL -c verbatim, where it expanded to
+# nothing -- so nvim was launched with zero arguments (empty buffer).
 edit = [
-    { run = 'nvim "$@"', block = true, desc = "Neovim" }
+    { run = 'nvim %s', block = true, desc = "Neovim" }
 ]
 play = [
-    { run = 'mpv "$@"', block = true, desc = "MPV Player" }
+    { run = 'mpv %s', block = true, desc = "MPV Player" }
 ]
 web = [
-    {run = 'barve "$@"', orphan = true, desc = "open in brave browser"}
+    { run = 'brave %s', orphan = true, desc = "open in brave browser" }
 ]
 
 [open]
