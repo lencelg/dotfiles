@@ -41,3 +41,5 @@ luac.out
 
 # other
 nvim-pack-lock.json
+
+.zshrc
