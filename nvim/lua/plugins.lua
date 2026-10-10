@@ -1,5 +1,3 @@
--- 使用 vim.pack 声明所有插件
--- 注意：type = 'opt' 表示懒加载，需要手动 packadd
 
 vim.pack.add({
     -- 主题
@@ -25,11 +23,14 @@ vim.pack.add({
     { src = 'https://github.com/nvim-lualine/lualine.nvim', type = 'opt' },
 
     -- Markdown
-    { src = 'https://github.com/OXY2DEV/markview.nvim', type = 'opt'},
+    -- { src = 'https://github.com/OXY2DEV/markview.nvim', type = 'opt'},
+    
+    -- image render
+    { src = 'https://github.com/3rd/image.nvim', type = 'opt'},
 
     -- Rust
     { src = 'https://github.com/mrcjkb/rustaceanvim', type = 'opt' },
 
     --typst preview
-    { src = 'https://github.com/chomosuke/typst-preview.nvim', type = 'opt'}
+    -- { src = 'https://github.com/chomosuke/typst-preview.nvim', type = 'opt'}
 })

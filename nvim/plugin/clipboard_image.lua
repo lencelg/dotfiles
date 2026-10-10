@@ -20,7 +20,7 @@ local M = {}
 -- =============================================================================
 M.config = {
   -- Relative directory where images will be stored (under the current file).
-  img_dir           = "img",
+  img_dir           = "_res",
 
   -- Key mapping to trigger the paste command (set to false to disable).
   keymap            = "<leader>,",
@@ -375,7 +375,7 @@ function M.paste_image()
   -- The default extension matches the actual clipboard content.
   local default_ext = img_info.ext
   vim.ui.input({
-    prompt = "Image filename (e.g. photo or photo.jpg, default: ." .. default_ext .. "): ",
+    prompt = "Image filename (default: ." .. default_ext .. "): ",
     default = "",
   }, function(input)
     if not input or input == "" then

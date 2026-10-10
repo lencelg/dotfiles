@@ -11,3 +11,4 @@ require('lualine-config')   -- 状态栏
 require('markview')  -- Markdown 增强
 require('rust')      -- Rust 支持（可选）
 require('cd-navigator')
+require('images')
