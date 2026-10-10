@@ -289,7 +289,7 @@ binds {
     }
 
     window-rule{
-        match app-id="code"
+        match app-id=r#"^com\.microsoft\.VSCode$"#
         match app-id="foot"
         match app-id="dev.zed.Zed"
         match app-id="kitty"
