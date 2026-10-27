@@ -290,7 +290,8 @@ binds {
     window-rule{
         match app-id=r#"^com\.microsoft\.VSCode$"#
         match app-id="foot"
-        // match app-id="Obsidian"
+        match app-id="inker"
+        match app-id="nemo"
         match app-id="dev.zed.Zed"
         match app-id="kitty"
         match app-id="alacritty"

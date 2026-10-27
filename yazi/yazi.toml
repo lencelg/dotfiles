@@ -32,7 +32,7 @@ rules = [
 	{ mime = "application/{json,xml,yaml,javascript,toml,x-empty}", use = "edit" },
 	{ url = "*.{txt,md,typ,c,cpp,h,hpp,rs,go,py,lua,toml,yml,yaml,json,conf,cfg,ini,env,log,sh,bash,zsh,vim,lock}", use = "edit" },
 
-    { url = ".gitignore", use = "edit"},
+    { url = "*.gitignore", use = "edit"},
 
 	{ url = "*", use = [ "system", "edit", "open_dir" ] },
 ]
