@@ -1,4 +1,4 @@
--- Neovim 基础设置
+-- -- Neovim 基础设置
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
