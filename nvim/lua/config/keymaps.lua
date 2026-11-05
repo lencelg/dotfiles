@@ -2,10 +2,6 @@
 local mini = require('config/mini')
 
 vim.keymap.set('n', '<leader>e', function() mini.load('files') end, { desc = 'Open mini.files' })
-vim.keymap.set('n', '<leader>f', function() mini.load('pick'); require('mini.pick').builtin.files() end, { desc = 'Pick files' })
-vim.keymap.set('n', '<leader>g', function() mini.load('pick'); require('mini.pick').builtin.grep_live() end, { desc = 'Grep live' })
-vim.keymap.set('n', '<leader>b', function() mini.load('pick'); require('mini.pick').builtin.buffers() end, { desc = 'Buffers' })
-vim.keymap.set('n', '<leader>h', function() mini.load('pick'); require('mini.pick').builtin.help() end, { desc = 'Help tags' })
 
 -- 系统剪贴板
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy to clipboard' })

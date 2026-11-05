@@ -16,3 +16,4 @@ require('config/markview-config')   -- Markdown 增强（按文件类型）
 require('config/images')     -- 图片渲染（按文件类型/扩展名）
 require('config/rust')       -- Rust 支持（按扩展名）
 require('config/cd-navigator')
+require('config/telescope')

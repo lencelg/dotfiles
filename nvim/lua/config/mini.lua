@@ -27,9 +27,6 @@ local setups = {
             },
         })
     end,
-    pick = function()
-        require('mini.pick').setup()
-    end,
     jump = function()
         require('mini.jump').setup()
     end,
