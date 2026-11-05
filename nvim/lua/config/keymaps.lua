@@ -1,5 +1,5 @@
 -- mini 快捷键
-local mini = require('mini')
+local mini = require('config/mini')
 
 vim.keymap.set('n', '<leader>e', function() mini.load('files') end, { desc = 'Open mini.files' })
 vim.keymap.set('n', '<leader>f', function() mini.load('pick'); require('mini.pick').builtin.files() end, { desc = 'Pick files' })
@@ -58,10 +58,10 @@ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementa
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Find references' })
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code action' })
-vim.keymap.set('n', '<leader>ma', ':Mason<CR>', { desc = 'Open Mason' })
+vim.keymap.set('n', '<leader>ma', function() require('lsp').open_mason() end, { desc = 'Open Mason' })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = 'Show diagnostic' })
 vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ wrap = true, count = -1 }) end, { desc = 'Prev diagnostic' })
 vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ wrap = true, count = 1 }) end, { desc = 'Next diagnostic' })
 
 -- Markview
-vim.keymap.set('n', '<leader>ms', '<CMD>Markview Toggle<CR>', { desc = 'Toggle markview' })
+vim.keymap.set('n', '<leader>ms', function() require('markview-config').toggle() end, { desc = 'Toggle markview' })

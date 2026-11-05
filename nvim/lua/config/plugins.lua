@@ -1,6 +1,7 @@
 
+-- 只安装和登记，不加入 runtimepath；实际加载由 lazypack 在触发事件时执行
 vim.pack.add({
-    -- 主题
+    -- 主题（包名由仓库名推断为 nvim）
     { src = 'https://github.com/catppuccin/nvim'},
 
     -- LSP 核心
@@ -23,7 +24,7 @@ vim.pack.add({
     { src = 'https://github.com/nvim-lualine/lualine.nvim'},
 
     -- Markdown
-    -- { src = 'https://github.com/OXY2DEV/markview.nvim'},
+    { src = 'https://github.com/OXY2DEV/markview.nvim'},
     
     -- image render
     { src = 'https://github.com/3rd/image.nvim'},
@@ -36,4 +37,4 @@ vim.pack.add({
 
     -- nvim.lint
     { src = 'https://github.com/mfussenegger/nvim-lint'},
-})
+}, { load = function() end })

@@ -1,5 +1,11 @@
+local mini = require('config/mini')
+
 -- 依赖检查
 local function check_deps()
+    if not mini.load('pick') then
+        return nil
+    end
+
     local ok, minipick = pcall(require, 'mini.pick')
     if not ok then
         vim.notify('mini.pick not found', vim.log.levels.ERROR)
