@@ -1,4 +1,4 @@
-local lazypack = require('config/lazypack')
+local lazypack = require('config.lazypack')
 
 -- vim.pack 以仓库名 nvim 作为 catppuccin/nvim 的包名
 vim.api.nvim_create_autocmd('VimEnter', {

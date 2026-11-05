@@ -37,4 +37,5 @@ vim.pack.add({
 
     -- nvim.lint
     { src = 'https://github.com/mfussenegger/nvim-lint'},
+    { src = 'https://github.com/rshkarin/mason-nvim-lint'},
 }, { load = function() end })

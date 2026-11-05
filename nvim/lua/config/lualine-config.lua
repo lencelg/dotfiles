@@ -1,4 +1,4 @@
-local lazypack = require('config/lazypack')
+local lazypack = require('config.lazypack')
 
 vim.api.nvim_create_autocmd('VimEnter', {
     once = true,

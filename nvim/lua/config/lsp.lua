@@ -1,4 +1,4 @@
-local lazypack = require('config/lazypack')
+local lazypack = require('config.lazypack')
 
 local M = {}
 local ready = false
@@ -9,7 +9,10 @@ local function setup()
     end
 
     local ok, err = pcall(function()
-        require('mason').setup()
+        local mason = require('mason')
+        if not mason.has_setup then
+            mason.setup()
+        end
         require('mason-lspconfig').setup({
             ensure_installed = { 'lua_ls', 'pyright', 'clangd' },
             -- 由下方显式 enable，避免 mason 抢在自定义配置前启动默认配置

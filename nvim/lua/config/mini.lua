@@ -1,4 +1,4 @@
-local lazypack = require('config/lazypack')
+local lazypack = require('config.lazypack')
 
 local M = {}
 local base_ready = false

@@ -1,4 +1,4 @@
-local mini = require('config/mini')
+local mini = require('config.mini')
 
 -- 依赖检查
 local function check_deps()

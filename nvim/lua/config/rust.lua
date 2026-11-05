@@ -1,6 +1,6 @@
-local lazypack = require('config/lazypack')
-local lsp = require('config/lsp')
-local treesitter = require('config/treesitter')
+local lazypack = require('config.lazypack')
+local lsp = require('config.lsp')
+local treesitter = require('config.treesitter')
 
 local ready = false
 
